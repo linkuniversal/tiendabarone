@@ -27,7 +27,7 @@
     --marquee-text: #FAC57A;
 
     /* TRAMA DIAGONAL ESTILO HERMÈS EN BAJORRELIEVE */
-    --pattern-line: rgba(92, 69, 53, 0.16);
+    --pattern-line: rgba(92, 69, 53, 0.22);
     --pattern-highlight: rgba(255, 255, 255, 0.95);
     --grain-opacity: 0.085;
     --grain-blend: multiply;
