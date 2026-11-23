@@ -1,1 +1,388 @@
-TIENDA BARONE
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Tienda Barone · Sillones &amp; Muebles de Diseño | Taller &amp; Showrooms</title>
+    <meta name="description" content="No vendemos solo muebles, creamos espacios que enamoran. Showrooms en Lomas de Zamora y Adrogué. 12 cuotas sin interés.">
+    <meta name="theme-color" content="#351703">
+
+    <!-- PRELOAD ESTRATÉGICO -->
+    <link rel="preload" as="image" href="./sillon.webp">
+
+    <!-- TIPOGRAFÍAS DE ARQUITECTURA & INTERIORISMO NOBLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body data-theme="walnut">
+
+    <!-- LIENZO DE TEXTURA ANALÓGICA DE BAJORRELIEVE -->
+    <canvas id="grainCanvas" class="ambient-grain-layer" aria-hidden="true"></canvas>
+
+    <!-- HALO DE LUZ DE TALLER -->
+    <div class="ambient-warm-glow" aria-hidden="true"></div>
+
+    <main class="master-hub-shell">
+
+        <!-- CINTILLO SUPERIOR: 12 CUOTAS SIN INTERÉS -->
+        <aside class="promo-gold-tape" aria-label="Financiación">
+            <div class="tape-track">
+                <span>✦ 12 CUOTAS SIN INTERÉS ✦ CREAMOS ESPACIOS, CREAMOS HOGAR 🏠 ✦ SHOWROOMS LOMAS &amp; ADROGUÉ ✦ 12 CUOTAS SIN INTERÉS ✦</span>
+                <span>✦ 12 CUOTAS SIN INTERÉS ✦ CREAMOS ESPACIOS, CREAMOS HOGAR 🏠 ✦ SHOWROOMS LOMAS &amp; ADROGUÉ ✦ 12 CUOTAS SIN INTERÉS ✦</span>
+            </div>
+        </aside>
+
+        <!-- BARRA DE UTILIDAD Y MODO CROMÁTICO -->
+        <header class="top-nav-bar">
+            <button type="button" class="theme-switch-pill" id="themeSwitchBtn" aria-label="Cambiar acabado de ambiente">
+                <span class="theme-switch-dot"></span>
+                <span id="themeSwitchLabel">Nogal Profundo</span>
+            </button>
+
+            <div class="live-status-pill" id="liveStatusPill">
+                <span class="live-status-beacon" id="liveStatusBeacon"></span>
+                <span id="liveStatusText">Comprobando...</span>
+            </div>
+        </header>
+
+        <!-- MONUMENTO DE MARCA: LOGO OFICIAL VECTORIAL EMBEBIDO DIRECTO -->
+        <section class="brand-hero-monument">
+            <div class="logo-emblem-wrap" id="brandLogoTrigger" title="Tienda Barone Oficial">
+                <svg class="brand-svg-official" viewBox="0 0 212.66 115.52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tienda Barone · Muebles de Diseño">
+                    <defs>
+                        <style>
+                            .barone-cls-1 { fill: #FAC57A; }
+                            .barone-cls-2 { fill: #F8C577; }
+                            .barone-cls-3 { fill: #FFFFFF; }
+                        </style>
+                    </defs>
+                    <g>
+                        <path class="barone-cls-1" d="M59.55,7.77V0h93.56v7.77H59.55Z"/>
+                        <path class="barone-cls-1" d="M153.11,14.28v8.03c-.55,0-1.04,0-1.53,0-7.14,0-14.27,0-21.41,0-2.29,0-2.87.59-2.87,2.86,0,13.85,0,27.69,0,41.54,0,.63,0,1.26,0,1.99h-8.31V14.28h34.12Z"/>
+                        <path class="barone-cls-1" d="M59.55,14.27v8.03c.55,0,1.04,0,1.53,0,7.14,0,14.27,0,21.41,0,2.29,0,2.87.59,2.87,2.86,0,13.85,0,27.69,0,41.54,0,.63,0,1.26,0,1.99h8.31c0-18.12,0-36.23,0-54.42h-34.12Z"/>
+                        <path class="barone-cls-1" d="M102.28,14.27h8.17v54.41h-8.17V14.27Z"/>
+                        <path class="barone-cls-1" d="M68.78,29.57h8.28v39.07h-8.28V29.57Z"/>
+                        <path class="barone-cls-1" d="M135.75,29.57h8.23v39.07h-8.23V29.57Z"/>
+                    </g>
+                    <g>
+                        <path class="barone-cls-3" d="M0,80.98c.16.07.41.13.75.2s.7.12,1.11.17.78.07,1.12.07l-2.98.27v-.71ZM15.64,81.42v1.03H0v-1.03h15.64ZM2.71,82.38v.07c-.75.02-1.35.25-1.8.7-.45.45-.67,1.06-.67,1.82v.27l-.24.02v-2.88h2.71ZM6.06,96.77v1.78h-1.96v-.24h.32c.42,0,.79-.15,1.09-.45.3-.3.46-.66.48-1.09h.07ZM9.65,81.52v17.03h-3.67v-17.03h3.67ZM9.58,96.77h.07c.02.42.17.79.48,1.09.3.3.66.45,1.09.45h.32v.24h-1.95v-1.78ZM15.64,80.98v.71l-2.98-.27c.36,0,.74-.02,1.14-.07.4-.05.77-.11,1.11-.17s.59-.13.73-.2ZM15.64,82.38v2.88l-.24-.02v-.27c0-.77-.22-1.37-.67-1.82-.45-.45-1.06-.68-1.82-.7v-.07h2.74Z"/>
+                        <path class="barone-cls-3" d="M18.94,83.23h-.07c-.02-.42-.18-.79-.48-1.09-.3-.3-.66-.45-1.09-.45h-.32v-.24h1.96v1.78ZM18.94,96.77v1.78h-1.96v-.24h.32c.42,0,.79-.15,1.09-.45.3-.3.46-.66.48-1.09h.07ZM22.53,81.45v17.11h-3.67v-17.11h3.67ZM22.46,83.23v-1.78h1.96v.24h-.32c-.42,0-.79.15-1.09.45-.3.3-.46.66-.48,1.09h-.07ZM22.46,96.77h.07c.02.42.17.79.48,1.09.3.3.66.45,1.09.45h.32v.24h-1.96v-1.78Z"/>
+                        <path class="barone-cls-3" d="M28.4,83.23h-.07c-.02-.42-.18-.79-.48-1.09-.3-.3-.66-.45-1.09-.45h-.32v-.24h1.96v1.78ZM28.4,96.77v1.78h-1.96v-.24h.32c.42,0,.79-.15,1.09-.45.3-.3.46-.66.48-1.09h.07ZM31.99,81.45v17.11h-3.67v-17.11h3.67ZM38.73,81.45v1.05h-6.82v-1.05h6.82ZM37.54,89.61v1.03h-5.62v-1.03h5.62ZM38.44,97.5l.59,1.05h-7.11v-1.05h6.52ZM40.22,93.54l-1.12,5.01h-4.79l.88-1.05c.81,0,1.53-.16,2.15-.48s1.15-.77,1.59-1.37c.44-.59.79-1.3,1.05-2.11h.24ZM37.54,87.31v2.35h-2.32v-.05c.6-.02,1.1-.22,1.49-.62s.59-.9.59-1.5v-.17h.24ZM37.54,90.59v2.35h-.24v-.2c0-.6-.2-1.1-.59-1.49-.39-.39-.89-.59-1.49-.61v-.05h2.32ZM38.73,81.01v.71l-2.98-.27c.36,0,.74-.02,1.14-.07.4-.05.77-.11,1.11-.17.34-.07.59-.13.73-.2ZM38.73,82.42v2.86h-.24v-.29c0-.75-.22-1.35-.67-1.81s-1.05-.69-1.82-.71v-.05h2.74Z"/>
+                        <path class="barone-cls-3" d="M43.52,96.82v1.74h-2.03v-.24h.46c.41,0,.76-.15,1.05-.44.29-.29.44-.64.44-1.05h.07ZM43.4,81.08l3.52,3.74.02,13.73h-3.49v-14.42c0-.91-.1-1.93-.29-3.05h.24ZM43.4,81.08l15.59,14.86.29,2.96-15.59-14.83-.29-2.98ZM46.94,96.82c0,.41.15.76.44,1.05.29.29.64.44,1.05.44h.46v.24h-2.03v-1.74h.07ZM53.76,81.45h2.03v1.74h-.05c-.02-.42-.17-.78-.45-1.06-.29-.28-.64-.43-1.06-.43h-.46v-.24ZM59.21,81.45v14.32c0,.6.02,1.14.07,1.62.05.48.12.98.22,1.5h-.22l-3.54-3.96v-13.49h3.47ZM61.17,81.45v.24h-.44c-.41,0-.76.14-1.05.43-.29.29-.45.64-.46,1.06h-.07v-1.74h2.03Z"/>
+                        <path class="barone-cls-3" d="M64.49,83.23h-.07c0-.42-.16-.79-.46-1.09-.31-.3-.68-.45-1.1-.45h-.29l-.02-.24h1.96v1.78ZM64.49,96.77v1.78h-1.96v-.24h.32c.42,0,.79-.15,1.09-.45.3-.3.46-.66.48-1.09h.07ZM68.08,81.45v17.11h-3.67v-17.11h3.67ZM71.41,81.45c1.92,0,3.58.35,4.99,1.04,1.4.69,2.48,1.68,3.24,2.96.76,1.28,1.14,2.8,1.14,4.56s-.38,3.28-1.14,4.56c-.76,1.28-1.84,2.26-3.24,2.96-1.4.69-3.06,1.04-4.99,1.04h-5.82l-.02-1.03h5.55c1.17,0,2.18-.31,3.03-.92.85-.61,1.5-1.48,1.96-2.6.46-1.12.68-2.46.68-4.01s-.23-2.88-.68-4.01c-.46-1.12-1.11-1.99-1.96-2.6-.85-.61-1.86-.92-3.03-.92h-5.79v-1.03h6.08Z"/>
+                        <path class="barone-cls-3" d="M84.36,96.77c-.13.33-.16.6-.07.83.08.23.22.4.42.53.2.12.39.18.59.18h.22v.24h-5.23v-.24h.22c.38,0,.76-.12,1.16-.35s.73-.63.99-1.19h1.71ZM89.61,80.96l.1,2.98-6.06,14.54h-1.78l6.33-14.32c.05-.1.13-.28.26-.55.12-.27.25-.57.39-.92.14-.34.26-.67.38-.99.11-.32.17-.57.17-.75h.22ZM92.18,92.74v1.03h-7.18v-1.03h7.18ZM89.61,80.96l7.99,17.45h-4.4l-5.08-12.73,1.49-4.72ZM92.54,96.77h4.28c.28.55.61.95,1,1.19s.77.35,1.15.35h.2v.24h-7.77v-.24h.22c.33,0,.61-.13.86-.4.24-.27.27-.65.07-1.14Z"/>
+                        <path class="barone-cls-3" d="M107.57,83.23h-.07c-.02-.42-.18-.79-.48-1.09-.3-.3-.66-.45-1.09-.45h-.32v-.24h1.96v1.78ZM107.57,96.77v1.78h-1.96v-.24h.32c.42,0,.79-.15,1.09-.45.3-.3.46-.66.48-1.09h.07ZM111.17,81.45v17.11h-3.67v-17.11h3.67ZM112.68,81.45c1.19,0,2.25.14,3.19.43.94.29,1.67.73,2.21,1.34.54.61.81,1.41.81,2.41,0,.75-.14,1.38-.43,1.91s-.66.92-1.11,1.2c-.46.28-.94.45-1.44.51.81.07,1.55.29,2.21.68.66.39,1.18.91,1.55,1.56.37.65.56,1.42.56,2.3,0,1.04-.29,1.92-.85,2.63-.57.71-1.37,1.24-2.41,1.6-1.04.36-2.24.54-3.6.54h-2.42c.02-.38.02-.74.02-1.1h1.32c.73,0,1.38-.14,1.94-.42.56-.28,1-.71,1.32-1.3.32-.59.48-1.33.48-2.25,0-.72-.11-1.33-.33-1.83-.22-.5-.51-.92-.88-1.23-.37-.32-.79-.55-1.28-.7-.49-.15-1-.22-1.54-.22v-.22c.38,0,.74-.06,1.1-.18s.68-.31.97-.57c.28-.26.51-.61.67-1.04s.24-.95.24-1.55c0-.83-.13-1.5-.38-2s-.62-.87-1.09-1.1c-.47-.23-1.02-.34-1.64-.34h-3.18s-.02-.11-.06-.28c-.04-.17-.1-.43-.18-.77h4.23Z"/>
+                        <path class="barone-cls-3" d="M124.46,96.77c-.13.33-.15.6-.07.83.08.23.22.4.42.53.2.12.39.18.59.18h.22v.24h-5.23v-.24h.22c.38,0,.76-.12,1.16-.35s.73-.63.99-1.19h1.71ZM129.71,80.96l.1,2.98-6.06,14.54h-1.78l6.33-14.32c.05-.1.13-.28.26-.55s.25-.57.39-.92c.14-.34.26-.67.38-.99s.17-.57.17-.75h.22ZM132.28,92.74v1.03h-7.18v-1.03h7.18ZM129.71,80.96l7.99,17.45h-4.4l-5.08-12.73,1.49-4.72ZM132.65,96.77h4.28c.28.55.61.95,1,1.19.39.24.77.35,1.15.35h.2v.24h-7.77v-.24h.22c.33,0,.61-.13.86-.4.25-.27.27-.65.07-1.14Z"/>
+                        <path class="barone-cls-3" d="M141.64,83.23h-.07c-.02-.42-.18-.79-.48-1.09-.3-.3-.66-.45-1.09-.45h-.32v-.24h1.96v1.78ZM141.64,96.77v1.78h-1.96v-.24h.32c.42,0,.79-.15,1.09-.45.3-.3.46-.66.48-1.09h.07ZM145.23,81.45v17.11h-3.67v-17.11h3.67ZM148.07,81.45c.73,0,1.45.08,2.15.24.7.16,1.32.42,1.87.78s.98.83,1.31,1.42c.33.59.49,1.31.49,2.17,0,.68-.14,1.36-.43,2.04-.29.68-.72,1.25-1.31,1.74-.59.48-1.34.77-2.27.87.52.16,1,.46,1.43.88.43.42.79.85,1.06,1.27.02.03.11.18.28.44s.38.58.64.96c.25.38.52.77.79,1.16s.53.73.76,1.03c.36.44.68.79.98,1.06.29.27.6.46.93.59.33.12.7.19,1.12.21v.24h-2.39c-.88,0-1.68-.08-2.4-.23-.72-.15-1.35-.42-1.91-.79s-1.03-.88-1.44-1.51c-.13-.2-.27-.44-.43-.75-.16-.3-.31-.62-.48-.96-.16-.34-.32-.67-.48-.99-.16-.32-.29-.61-.4-.87s-.2-.46-.24-.61c-.21-.52-.46-.91-.75-1.17-.29-.26-.59-.42-.92-.46v-.24h.76c.44,0,.87-.09,1.28-.27.42-.18.79-.47,1.11-.88.33-.41.55-.97.68-1.69.03-.15.06-.32.09-.51s.03-.42.01-.66c-.05-1.17-.34-2.03-.88-2.58-.54-.55-1.21-.83-2-.84-.23-.02-.48-.02-.75-.01s-.51.01-.73.01h-.45s-.02-.11-.06-.28c-.04-.17-.1-.44-.18-.79h3.15ZM145.16,96.77h.07c0,.42.15.79.46,1.09s.68.45,1.1.45h.29v.24h-1.93v-1.78Z"/>
+                        <path class="barone-cls-3" d="M166.91,81.11c1.96,0,3.65.36,5.09,1.09,1.44.73,2.56,1.75,3.35,3.07s1.19,2.9,1.19,4.74-.4,3.4-1.19,4.73-1.91,2.35-3.35,3.08c-1.44.72-3.14,1.09-5.09,1.09s-3.65-.36-5.1-1.09c-1.44-.72-2.55-1.75-3.34-3.07-.78-1.32-1.17-2.9-1.17-4.74s.39-3.4,1.17-4.73c.78-1.33,1.89-2.35,3.34-3.08,1.44-.72,3.14-1.09,5.1-1.09ZM166.91,97.87c1.16,0,2.15-.32,2.98-.96.83-.64,1.47-1.55,1.93-2.72s.68-2.57.68-4.18-.23-3.01-.68-4.18c-.46-1.17-1.1-2.08-1.93-2.72-.83-.64-1.83-.96-2.98-.96s-2.13.32-2.97.96c-.84.64-1.49,1.55-1.94,2.72-.46,1.17-.68,2.57-.68,4.18s.23,3.01.68,4.18,1.1,2.08,1.94,2.72,1.83.96,2.97.96Z"/>
+                        <path class="barone-cls-3" d="M179.86,96.82v1.74h-2.03v-.24h.46c.41,0,.76-.15,1.05-.44.29-.29.44-.64.44-1.05h.07ZM179.74,81.08l3.52,3.74.02,13.73h-3.49v-14.42c0-.91-.1-1.93-.29-3.05h.25ZM179.74,81.08l15.59,14.86.29,2.96-15.59-14.83-.29-2.98ZM183.28,96.82c0,.41.15.76.44,1.05.29.29.64.44,1.05.44h.46v.24h-2.03v-1.74h.07ZM190.1,81.45h2.03v1.74h-.05c-.02-.42-.17-.78-.45-1.06-.29-.28-.64-.43-1.06-.43h-.46v-.24ZM195.55,81.45v14.32c0,.6.02,1.14.07,1.62.05.48.12.98.22,1.5h-.22l-3.54-3.96v-13.49h3.47ZM197.5,81.45v.24h-.44c-.41,0-.76.14-1.05.43-.29.29-.45.64-.46,1.06h-.07v-1.74h2.03Z"/>
+                        <path class="barone-cls-3" d="M200.83,83.23h-.07c-.02-.42-.18-.79-.48-1.09-.3-.3-.66-.45-1.09-.45h-.32v-.24h1.96v1.78ZM200.83,96.77v1.78h-1.96v-.24h.32c.42,0,.79-.15,1.09-.45.3-.3.46-.66.48-1.09h.07ZM204.42,81.45v17.11h-3.67v-17.11h3.67ZM211.16,81.45v1.05h-6.82v-1.05h6.82ZM209.97,89.61v1.03h-5.62v-1.03h5.62ZM210.87,97.5l.59,1.05h-7.11v-1.05h6.53ZM212.66,93.54l-1.12,5.01h-4.79l.88-1.05c.81,0,1.53-.16,2.15-.48s1.15-.77,1.59-1.37c.44-.59.79-1.3,1.05-2.11h.25ZM209.97,87.31v2.35h-2.32v-.05c.6-.02,1.1-.22,1.49-.62s.59-.9.59-1.5v-.17h.24ZM209.97,90.59v2.35h-.24v-.2c0-.6-.2-1.1-.59-1.49-.39-.39-.89-.59-1.49-.61v-.05h2.32ZM211.16,81.01v.71l-2.98-.27c.36,0,.74-.02,1.14-.07.4-.05.77-.11,1.11-.17.34-.07.59-.13.73-.2ZM211.16,82.42v2.86h-.24v-.29c0-.75-.22-1.35-.67-1.81-.45-.46-1.06-.69-1.82-.71v-.05h2.74Z"/>
+                    </g>
+                    <g>
+                        <path class="barone-cls-2" d="M10.24,115.47v-7.02h.43l3.26,5.62h-.23l3.25-5.62h.42v7.02s-.49,0-.49,0v-6.25s.13,0,.13,0l-3.08,5.31h-.25l-3.09-5.31h.15v6.25h-.5Z"/>
+                        <path class="barone-cls-2" d="M27.74,115.52c-.87,0-1.55-.25-2.06-.76-.5-.51-.75-1.26-.75-2.27v-4.04h.51v4.02c0,.88.2,1.52.6,1.94s.97.63,1.7.63,1.29-.21,1.69-.63.6-1.07.6-1.94v-4.02h.51v4.04c0,1-.25,1.76-.75,2.27-.5.51-1.19.76-2.06.76Z"/>
+                        <path class="barone-cls-2" d="M38.11,115.47v-7.02h4.69v.46h-4.18v6.09h4.33v.46h-4.84ZM38.56,112.13v-.45h3.8v.45h-3.8Z"/>
+                        <path class="barone-cls-2" d="M49.99,115.47v-7.02h2.93c.76,0,1.35.15,1.77.46s.64.75.64,1.33c0,.38-.09.7-.27.96-.18.26-.43.46-.75.59s-.67.2-1.07.2l.18-.2c.48,0,.89.07,1.23.21.34.14.6.34.78.61.18.27.27.6.27,1,0,.59-.21,1.04-.64,1.37-.43.32-1.08.49-1.94.49h-3.13ZM50.5,115.03h2.62c.67,0,1.19-.12,1.54-.35.35-.23.53-.6.53-1.11s-.18-.87-.53-1.1c-.35-.23-.87-.35-1.54-.35h-2.68v-.44h2.46c.61,0,1.08-.12,1.41-.35.33-.23.5-.58.5-1.05s-.17-.81-.5-1.04c-.33-.23-.81-.35-1.41-.35h-2.4v6.13Z"/>
+                        <path class="barone-cls-2" d="M62.7,115.47v-7.02h.51v6.56h4.04v.46h-4.55Z"/>
+                        <path class="barone-cls-2" d="M73.74,115.47v-7.02h4.69v.46h-4.18v6.09h4.33v.46h-4.84ZM74.19,112.13v-.45h3.8v.45h-3.8Z"/>
+                        <path class="barone-cls-2" d="M87.46,115.52c-.52,0-1.01-.09-1.48-.27-.46-.18-.82-.41-1.08-.69l.23-.38c.24.25.57.46.99.63.42.17.86.25,1.33.25s.85-.06,1.15-.18c.3-.12.52-.29.66-.5.14-.21.22-.44.22-.69,0-.3-.08-.54-.24-.72-.16-.18-.37-.32-.63-.43-.26-.11-.54-.2-.85-.27-.31-.07-.62-.15-.93-.24-.31-.08-.6-.19-.86-.33-.26-.13-.47-.32-.63-.55-.16-.23-.24-.53-.24-.9,0-.33.09-.64.26-.92.17-.28.44-.51.81-.68.37-.17.84-.26,1.41-.26.39,0,.77.06,1.15.17s.7.27.97.46l-.19.41c-.29-.2-.61-.35-.95-.45s-.66-.15-.98-.15c-.45,0-.82.06-1.11.19-.29.13-.51.3-.65.51-.14.21-.21.45-.21.71,0,.3.08.54.24.72.16.18.37.32.63.43.26.11.55.2.86.27s.62.15.93.24c.31.08.59.19.85.33.26.13.47.31.63.54.16.23.24.52.24.88,0,.33-.09.63-.27.92-.18.28-.46.51-.83.68-.37.17-.85.25-1.43.25Z"/>
+                        <path class="barone-cls-2" d="M104.64,115.47v-7.02h2.78c.74,0,1.39.15,1.95.45s1,.71,1.31,1.24c.31.53.47,1.13.47,1.81s-.16,1.29-.47,1.81c-.31.53-.75.94-1.31,1.24s-1.21.45-1.95.45h-2.78ZM105.16,115.01h2.23c.66,0,1.24-.13,1.72-.39.49-.26.87-.62,1.13-1.08s.4-.98.4-1.58-.13-1.12-.4-1.58c-.27-.46-.64-.82-1.13-1.08-.49-.26-1.06-.39-1.72-.39h-2.23v6.09Z"/>
+                        <path class="barone-cls-2" d="M118.1,115.47v-7.02h4.69v.46h-4.18v6.09h4.33v.46h-4.84ZM118.55,112.13v-.45h3.8v.45h-3.8Z"/>
+                        <path class="barone-cls-2" d="M137.72,115.47v-7.02h2.78c.74,0,1.39.15,1.95.45s1,.71,1.31,1.24c.31.53.47,1.13.47,1.81s-.16,1.29-.47,1.81c-.31.53-.75.94-1.31,1.24s-1.21.45-1.95.45h-2.78ZM138.23,115.01h2.23c.66,0,1.24-.13,1.72-.39.49-.26.87-.62,1.13-1.08s.4-.98.4-1.58-.13-1.12-.4-1.58c-.27-.46-.64-.82-1.13-1.08-.49-.26-1.06-.39-1.72-.39h-2.23v6.09Z"/>
+                        <path class="barone-cls-2" d="M151.18,115.47v-7.02h.51v7.02h-.51Z"/>
+                        <path class="barone-cls-2" d="M161.15,115.52c-.52,0-1.01-.09-1.48-.27-.46-.18-.82-.41-1.08-.69l.23-.38c.24.25.57.46.99.63.42.17.86.25,1.33.25s.85-.06,1.15-.18c.3-.12.52-.29.66-.5.14-.21.21-.44.21-.69,0-.3-.08-.54-.24-.72s-.37-.32-.63-.43c-.26-.11-.54-.2-.85-.27-.31-.07-.62-.15-.93-.24-.31-.08-.6-.19-.86-.33s-.47-.32-.63-.55c-.16-.23-.24-.53-.24-.9,0-.33.09-.64.26-.92.17-.28.44-.51.81-.68.37-.17.84-.26,1.41-.26.39,0,.77.06,1.15.17.38.11.7.27.97.46l-.19.41c-.29-.2-.61-.35-.95-.45-.34-.1-.66-.15-.98-.15-.45,0-.82.06-1.11.19s-.51.3-.65.51c-.14.21-.21.45-.21.71,0,.3.08.54.24.72.16.18.37.32.63.43.26.11.55.2.86.27.31.07.62.15.93.24.31.08.59.19.85.33s.47.31.63.54c.16.23.24.52.24.88,0,.33-.09.63-.27.92-.18.28-.46.51-.83.68-.37.17-.85.25-1.43.25Z"/>
+                        <path class="barone-cls-2" d="M170.58,115.47v-7.02h4.69v.46h-4.18v6.09h4.33v.46h-4.84ZM171.03,112.13v-.45h3.8v.45h-3.8Z"/>
+                        <path class="barone-cls-2" d="M182.46,115.47v-7.02h.43l5,6.38h-.23v-6.38h.51v7.02h-.42l-5.01-6.39h.23v6.39h-.51ZM186.05,107.81c-.17,0-.31-.04-.44-.11-.12-.07-.24-.15-.34-.24-.1-.09-.21-.17-.32-.25-.11-.07-.22-.11-.35-.11-.16,0-.29.06-.38.19-.09.12-.15.29-.16.49h-.35c0-.29.09-.53.24-.73.15-.2.36-.3.64-.3.17,0,.31.04.44.1.13.07.24.15.35.24.1.09.21.17.31.25.1.07.22.11.35.11.17,0,.3-.07.39-.2s.14-.28.15-.46h.35c0,.29-.09.54-.24.73-.15.19-.36.29-.63.29Z"/>
+                        <path class="barone-cls-2" d="M198.77,115.52c-.52,0-1-.09-1.45-.27-.45-.18-.83-.43-1.16-.75-.33-.32-.59-.7-.77-1.13-.18-.43-.27-.9-.27-1.41s.09-.98.27-1.41c.18-.43.44-.81.77-1.13s.72-.57,1.16-.75c.44-.18.93-.27,1.45-.27s1,.09,1.45.27c.44.18.83.43,1.16.75.33.32.58.7.77,1.13.18.43.28.9.28,1.42s-.09.99-.28,1.42c-.18.43-.44.81-.77,1.13-.33.32-.71.57-1.16.75-.44.18-.93.27-1.45.27ZM198.77,115.05c.45,0,.86-.08,1.24-.23.38-.15.71-.37.99-.65.28-.28.5-.61.66-.98.16-.38.24-.78.24-1.22s-.08-.86-.24-1.23-.38-.7-.66-.98-.61-.5-.99-.65-.8-.23-1.24-.23-.86.08-1.24.23-.71.37-1,.65-.5.61-.66.98-.24.78-.24,1.23.08.85.24,1.22c.16.37.38.7.66.98.28.28.62.5,1,.65.38.15.79.23,1.24.23Z"/>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="brand-tag-line">Sillones · Muebles de Diseño</div>
+
+            <!-- MANIFIESTO OFICIAL LITERAL -->
+            <div class="manifesto-box-warm">
+                <p class="manifesto-phrase-quote">"No vendemos solo muebles, creamos espacios que enamoran."</p>
+                <p class="manifesto-sub-copy">
+                    El diseño transforma ambientes. Los detalles los hacen únicos. Tu casa merece muebles que estén a la altura de tus sueños!!
+                </p>
+            </div>
+
+            <!-- CHIPS DE DESTACADAS REALES -->
+            <div class="highlights-chips-row">
+                <span class="highlight-chip">✦ Fabricamos</span>
+                <span class="highlight-chip">✦ Sillones</span>
+                <span class="highlight-chip">✦ Mesas</span>
+                <span class="highlight-chip">✦ Mix de Sillas</span>
+                <span class="highlight-chip">✦ Cortinas!!</span>
+                <span class="highlight-chip">✦ Entregas</span>
+            </div>
+        </section>
+
+        <!-- CTA HEROICO: WHATSAPP DIRECTO CON ATENCIÓN PERSONALIZADA -->
+        <a href="https://wa.me/5491146731570?text=%C2%A1Hola%20Tienda%20Barone!%20%F0%9F%AA%91%20Quisiera%20hacer%20una%20consulta%20por%20sus%20muebles%20de%20dise%C3%B1o%20y%20sillones." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-hero" id="heroWhatsAppBtn">
+            <div class="hero-wa-left">
+                <span class="hero-wa-beacon-tag"><span class="beacon-circle"></span> Atención Directa por WhatsApp</span>
+                <h2 class="hero-wa-headline">Consultar &amp; Presupuestar</h2>
+                <span class="hero-wa-phone">11 4673-1570 · Asesoramiento para tu espacio</span>
+            </div>
+            <div class="hero-wa-icon-bubble">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </div>
+        </a>
+
+        <!-- BENTO ACTIONS GRID -->
+        <section class="bento-editorial-grid">
+
+            <!-- SITIO OFICIAL TIENDA ONLINE -->
+            <a href="http://www.tiendabarone.com.ar/" target="_blank" rel="noopener noreferrer" class="bento-tile bento-span-2 bento-gold-card">
+                <div class="bento-tile-meta">
+                    <span class="bento-category-tag">Sitio Web Oficial</span>
+                    <span class="bento-arrow-diag">↗</span>
+                </div>
+                <div>
+                    <h3 class="bento-title-main">tiendabarone.com.ar</h3>
+                    <p class="bento-sub-detail">Catálogo completo de sillones, mesas, sillas y complementos con 12 cuotas sin interés.</p>
+                </div>
+            </a>
+
+            <!-- INSTAGRAM OFICIAL -->
+            <a href="https://www.instagram.com/tiendabarone/" target="_blank" rel="noopener noreferrer" class="bento-tile">
+                <div class="bento-tile-meta">
+                    <span class="bento-category-tag">Instagram Oficial</span>
+                    <span class="bento-arrow-diag">↗</span>
+                </div>
+                <div>
+                    <h3 class="bento-title-main">@tiendabarone</h3>
+                    <p class="bento-sub-detail">52,1 mil seguidores · Entregas reales, combinaciones de tapizados y videos de taller.</p>
+                </div>
+            </a>
+
+            <!-- FRASE DE DECORACIÓN DEL FEED -->
+            <article class="bento-tile bento-quote-card">
+                <div class="bento-tile-meta">
+                    <span class="bento-category-tag">Consejo Barone</span>
+                    <span style="font-size: 0.9rem; color: var(--color-gold);">💡</span>
+                </div>
+                <p class="quote-feed-text">"El error es elegir el color de la pared sin mirar el suelo y los muebles"</p>
+            </article>
+
+        </section>
+
+        <!-- SHOWCASE INTERACTIVO: VIDEO-BOOMERANG DE SILLONES & SILLAS -->
+        <section class="showcase-motion-section">
+            <div class="showcase-header-row">
+                <div>
+                    <span class="section-kicker">Mobiliario en Movimiento</span>
+                    <h3 class="section-headline-serif">Sillones &amp; Tapicería</h3>
+                </div>
+                <span class="motion-badge-pill">Loop Boomerang</span>
+            </div>
+
+            <div class="motion-cards-grid">
+
+                <!-- CARD 1: SILLÓN (VIDEO BOOMERANG CON FALLBACK WEBP) -->
+                <div class="motion-asset-card" data-card-id="card-sillon">
+                    <div class="video-frame-box">
+                        <video
+                            class="boomerang-video"
+                            src="./sillon.mp4"
+                            poster="./sillon.webp"
+                            muted
+                            playsinline
+                            webkit-playsinline
+                            loop
+                            preload="metadata"
+                            aria-label="Sillón Tienda Barone en tapizado noble"
+                        ></video>
+                        <span class="asset-format-badge">Sillón</span>
+                    </div>
+                    <div class="motion-card-footer">
+                        <h4 class="asset-title-text">Sillones de Confort Superior</h4>
+                        <p class="asset-desc-text">Estructuras macizas, espumas de alta densidad y géneros seleccionados.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 2: SILLA (VIDEO BOOMERANG CON FALLBACK WEBP) -->
+                <div class="motion-asset-card" data-card-id="card-silla">
+                    <div class="video-frame-box">
+                        <video
+                            class="boomerang-video"
+                            src="./silla.mp4"
+                            poster="./silla.webp"
+                            muted
+                            playsinline
+                            webkit-playsinline
+                            loop
+                            preload="metadata"
+                            aria-label="Silla de diseño Tienda Barone"
+                        ></video>
+                        <span class="asset-format-badge">Silla</span>
+                    </div>
+                    <div class="motion-card-footer">
+                        <h4 class="asset-title-text">Mix de Sillas &amp; Comedor</h4>
+                        <p class="asset-desc-text">Líneas ergonómicas preparadas para el uso diario y reuniones familiares.</p>
+                    </div>
+                </div>
+
+                <!-- CARD 3: SILLA 2 (VIDEO BOOMERANG) -->
+                <div class="motion-asset-card" data-card-id="card-silla2">
+                    <div class="video-frame-box">
+                        <video
+                            class="boomerang-video"
+                            src="./silla2.mp4"
+                            poster="./silla.webp"
+                            muted
+                            playsinline
+                            webkit-playsinline
+                            loop
+                            preload="metadata"
+                            aria-label="Silla contemporánea Tienda Barone"
+                        ></video>
+                        <span class="asset-format-badge">Silla II</span>
+                    </div>
+                    <div class="motion-card-footer">
+                        <h4 class="asset-title-text">Detalles que Hacen la Diferencia</h4>
+                        <p class="asset-desc-text">Combinación de maderas nobles y tapicería artesanal en cada terminación.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SHOWCASE FOTOGRÁFICO: MESAS & LIVING -->
+        <section class="showcase-motion-section">
+            <div class="showcase-header-row">
+                <div>
+                    <span class="section-kicker">Comedores &amp; Reunión</span>
+                    <h3 class="section-headline-serif">Mesas a Medida</h3>
+                </div>
+                <a href="http://www.tiendabarone.com.ar/" target="_blank" rel="noopener noreferrer" class="showcase-link-more">Ver todas →</a>
+            </div>
+
+            <div class="gallery-scroll-track">
+
+                <div class="gallery-item-card">
+                    <div class="gallery-photo-frame">
+                        <img src="./mesa.webp" alt="Mesa de comedor Tienda Barone" loading="lazy" decoding="async">
+                        <span class="gallery-corner-tag">Mesa Principal</span>
+                    </div>
+                    <div class="gallery-meta-box">
+                        <h4 class="gallery-item-title">Mesa de Madera Noble</h4>
+                        <span class="gallery-item-note">Tapas trabajadas a mano y bases estructurales firmes.</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-card">
+                    <div class="gallery-photo-frame">
+                        <img src="./mesa2.webp" alt="Mesa de centro Tienda Barone" loading="lazy" decoding="async">
+                        <span class="gallery-corner-tag">Línea Living</span>
+                    </div>
+                    <div class="gallery-meta-box">
+                        <h4 class="gallery-item-title">Mesas Ratona &amp; Centro</h4>
+                        <span class="gallery-item-note">Proporciones equilibradas para jerarquizar tu sala de estar.</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-card">
+                    <div class="gallery-photo-frame">
+                        <img src="./mesa3.webp" alt="Mesa de diseño Tienda Barone" loading="lazy" decoding="async">
+                        <span class="gallery-corner-tag">Acabados</span>
+                    </div>
+                    <div class="gallery-meta-box">
+                        <h4 class="gallery-item-title">Terminaciones Artesanales</h4>
+                        <span class="gallery-item-note">Lustres cálidos que destacan la veta natural de la madera.</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item-card">
+                    <div class="gallery-photo-frame">
+                        <img src="./sillon2.webp" alt="Sillón esquinero Tienda Barone" loading="lazy" decoding="async">
+                        <span class="gallery-corner-tag">Living XL</span>
+                    </div>
+                    <div class="gallery-meta-box">
+                        <h4 class="gallery-item-title">Sillón Modular Esquinero</h4>
+                        <span class="gallery-item-note">Espacios amplios pensados para descansar y disfrutar.</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SUCURSALES & HORARIOS OFICIALES -->
+        <article class="locations-board-card">
+            <div class="locations-board-header">
+                <div>
+                    <span class="section-kicker">Nuestros Espacios</span>
+                    <h3 class="section-headline-serif">Sucursales &amp; Horarios</h3>
+                </div>
+                <div class="hours-tag-today" id="hoursTagToday">Consultando horario...</div>
+            </div>
+
+            <!-- TABS DE SUCURSAL -->
+            <div class="branches-nav-tabs" role="tablist">
+                <button type="button" class="branch-tab-btn active" data-branch="lomas" role="tab" aria-selected="true">
+                    📍 Lomas de Zamora
+                </button>
+                <button type="button" class="branch-tab-btn" data-branch="adrogue" role="tab" aria-selected="false">
+                    📍 Adrogué
+                </button>
+            </div>
+
+            <!-- CONTENIDO DE LA SUCURSAL SELECCIONADA -->
+            <div class="branch-detail-panel" id="branchDetailPanel">
+                <!-- Se actualiza dinámicamente vía DOM Controller -->
+            </div>
+
+            <!-- HORARIOS OFICIALES -->
+            <div class="official-schedule-box">
+                <span class="schedule-title-head">Horarios Oficiales de Atención:</span>
+                <div class="schedule-row" id="scheduleRowWeek">
+                    <span class="schedule-day">Lunes a Viernes</span>
+                    <span class="schedule-hours">10:30 a 13:30 hs / 14:30 a 18:30 hs</span>
+                </div>
+                <div class="schedule-row" id="scheduleRowSat">
+                    <span class="schedule-day">Sábados</span>
+                    <span class="schedule-hours">10:00 a 15:00 hs</span>
+                </div>
+                <div class="schedule-row">
+                    <span class="schedule-day">Domingos</span>
+                    <span class="schedule-hours">Cerrado</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- FOOTER CORPORATIVO -->
+        <footer class="hub-editorial-footer">
+            <div class="footer-brand-title">TIENDA BARONE</div>
+            <p class="footer-motto-text">
+                Creamos espacios, creamos hogar. Fabricación propia de sillones, mesas de comedor, sillas y cortinas a medida.<br>
+                Lomas de Zamora: Hipólito Yrigoyen 9039 · Adrogué: Plaza Esteban Adrogué 48.
+            </p>
+            <div class="footer-channels-links">
+                <a href="https://wa.me/5491146731570" target="_blank" rel="noopener noreferrer">WhatsApp: 11 4673-1570</a>
+                <span>•</span>
+                <a href="https://www.instagram.com/tiendabarone/" target="_blank" rel="noopener noreferrer">@tiendabarone</a>
+                <span>•</span>
+                <a href="http://www.tiendabarone.com.ar/" target="_blank" rel="noopener noreferrer">tiendabarone.com.ar</a>
+            </div>
+            <p class="footer-legal-copy">© 2026 TIENDA BARONE · SILLONES &amp; MUEBLES DE DISEÑO · TODOS LOS DERECHOS RESERVADOS</p>
+        </footer>
+
+    </main>
+
+    <!-- BOTÓN FLOTANTE DIRECTO WHATSAPP -->
+    <a href="https://wa.me/5491146731570?text=%C2%A1Hola%20Tienda%20Barone!%20%F0%9F%AA%91%20Quisiera%20consultar%20por%20sus%20muebles%20de%20dise%C3%B1o." class="floating-whatsapp-anchor" target="_blank" rel="noopener noreferrer" aria-label="Abrir chat de WhatsApp con Tienda Barone">
+        <span class="floating-wa-label">WhatsApp</span>
+        <div class="floating-wa-circle">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </div>
+    </a>
+
+    <!-- BOOTSTRAP DE MÓDULOS ES -->
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
