@@ -1,55 +1,100 @@
 /* ==========================================================================
-   1. SISTEMA CROMÁTICO & TOKENS DE ALTA GAMA (TIENDA BARONE)
-   Paleta oficial estricta: #351703 (Nogal), #FAC57A (Oro), #FFFFFF (Blanco)
+   1. SISTEMA CROMÁTICO EDITORIAL (ESTÁNDAR DABIEN'S & HUMMUS + ADN BARONE)
    ========================================================================== */
 :root {
-    --color-walnut: #351703;
-    --color-walnut-dark: #220F02;
-    --color-walnut-soft: #4A240A;
+    /* PALETA 1 (POR DEFECTO): LINO MARFIL & NOGAL BARONE */
+    --bg-body: #FAF7F2;
+    --bg-surface: #FFFFFF;
+    --bg-surface-elevated: #F3ECE2;
+    --color-wood: #351703;
+    --color-wood-dark: #220F02;
+    --color-wood-soft: #6B472E;
+    --color-wood-glow: rgba(53, 23, 3, 0.16);
     --color-gold: #FAC57A;
     --color-gold-alt: #F8C577;
-    --color-gold-glow: rgba(250, 197, 122, 0.28);
-    --color-white: #FFFFFF;
+    --color-gold-glow: rgba(250, 197, 122, 0.34);
 
-    --bg-body: #351703;
-    --bg-surface: #261102;
-    --bg-surface-elevated: #442008;
-    --bg-surface-tint: rgba(250, 197, 122, 0.08);
+    --color-text-title: #22160F;
+    --color-text-body: #4A3B31;
+    --color-text-muted: #7C6B5E;
+    --color-border: #E8DED2;
+    --color-border-hover: #8D6A4E;
+    --badge-bg: #F4EBE0;
+    --badge-text: #4B2E1B;
 
-    --color-text-main: #FFFFFF;
-    --color-text-muted: #D1BAA9;
-    --color-text-faded: #9C8372;
+    /* MARQUESINA & ACCENTOS */
+    --marquee-bg: #351703;
+    --marquee-text: #FAC57A;
 
-    --border-subtle: rgba(250, 197, 122, 0.18);
-    --border-active: #FAC57A;
+    /* TRAMA DIAGONAL ESTILO HERMÈS EN BAJORRELIEVE */
+    --pattern-line: rgba(92, 69, 53, 0.16);
+    --pattern-highlight: rgba(255, 255, 255, 0.95);
+    --grain-opacity: 0.085;
+    --grain-blend: multiply;
+    --ambient-glow-color: rgba(250, 197, 122, 0.24);
+
+    --shadow-card: 0 10px 28px -6px rgba(53, 23, 3, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
+    --shadow-hover: 0 18px 38px -8px rgba(53, 23, 3, 0.14), 0 4px 12px rgba(0, 0, 0, 0.04);
 
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
     --font-mono: 'Space Grotesk', monospace;
-
-    --shadow-card: 0 14px 34px -8px rgba(0, 0, 0, 0.45), 0 3px 10px rgba(0, 0, 0, 0.25);
-    --shadow-hover: 0 20px 48px -10px rgba(250, 197, 122, 0.22);
     --spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* MODO MARFIL / AMBIENTE CLARO ALTERNATIVO CONSERVANDO EL NOGAL Y ORO */
-body[data-theme="chalk"] {
-    --bg-body: #FAF7F2;
+/* PALETA 2: ROBLE DORADO & ARENA */
+body[data-palette="arena"] {
+    --bg-body: #F6F1E8;
     --bg-surface: #FFFFFF;
-    --bg-surface-elevated: #F2EDE4;
-    --bg-surface-tint: rgba(53, 23, 3, 0.04);
-
-    --color-text-main: #351703;
-    --color-text-muted: #664E3E;
-    --color-text-faded: #917765;
-
-    --border-subtle: rgba(53, 23, 3, 0.14);
-    --border-active: #351703;
-
-    --shadow-card: 0 10px 30px -8px rgba(53, 23, 3, 0.08), 0 2px 8px rgba(0, 0, 0, 0.03);
-    --shadow-hover: 0 18px 40px -10px rgba(53, 23, 3, 0.16);
+    --bg-surface-elevated: #ECE2D2;
+    --color-wood: #694426;
+    --color-wood-dark: #432914;
+    --color-wood-soft: #966B45;
+    --color-wood-glow: rgba(105, 68, 38, 0.18);
+    --color-text-title: #1F1914;
+    --color-text-body: #473B30;
+    --color-text-muted: #7E6E5F;
+    --color-border: #DFD2BF;
+    --color-border-hover: #7A5333;
+    --badge-bg: #EFE4D4;
+    --badge-text: #59381D;
+    --marquee-bg: #4A301A;
+    --marquee-text: #FAC57A;
+    --pattern-line: rgba(122, 83, 51, 0.18);
+    --pattern-highlight: rgba(255, 255, 255, 0.95);
+    --grain-opacity: 0.088;
 }
 
+/* PALETA 3: NOGAL NOIR (OPCIONAL NOCTURNO REFINADO) */
+body[data-palette="noir"] {
+    --bg-body: #351703;
+    --bg-surface: #281102;
+    --bg-surface-elevated: #421E07;
+    --color-wood: #FAC57A;
+    --color-wood-dark: #220F02;
+    --color-wood-soft: #FAC57A;
+    --color-wood-glow: rgba(250, 197, 122, 0.22);
+    --color-text-title: #FFFFFF;
+    --color-text-body: #E7D6C8;
+    --color-text-muted: #C2A895;
+    --color-border: rgba(250, 197, 122, 0.22);
+    --color-border-hover: #FAC57A;
+    --badge-bg: #421E07;
+    --badge-text: #FAC57A;
+    --marquee-bg: #FAC57A;
+    --marquee-text: #351703;
+    --pattern-line: rgba(250, 197, 122, 0.075);
+    --pattern-highlight: rgba(0, 0, 0, 0.30);
+    --grain-opacity: 0.045;
+    --grain-blend: soft-light;
+    --ambient-glow-color: rgba(250, 197, 122, 0.14);
+    --shadow-card: 0 12px 30px -8px rgba(0, 0, 0, 0.45);
+    --shadow-hover: 0 18px 42px -10px rgba(250, 197, 122, 0.18);
+}
+
+/* ==========================================================================
+   2. RESET & BASE
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -65,16 +110,17 @@ html {
 
 body {
     background-color: var(--bg-body);
-    color: var(--color-text-main);
+    color: var(--color-text-body);
     font-family: var(--font-sans);
     min-height: 100vh;
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 14px calc(76px + env(safe-area-inset-bottom));
+    padding: 14px 14px calc(78px + env(safe-area-inset-bottom));
     overflow-x: hidden;
     position: relative;
+    letter-spacing: -0.01em;
     transition: background-color 0.35s ease, color 0.35s ease;
     touch-action: manipulation;
 }
@@ -84,155 +130,183 @@ img, video {
     max-width: 100%;
 }
 
-a {
-    color: inherit;
-}
-
 button {
     font-family: inherit;
 }
 
 /* ==========================================================================
-   2. TEXTURAS VISUALES EN COMPOSITOR GPU (CERO LAG EN INSTAGRAM)
+   3. CAPAS TEXTURALES GPU (HERMÈS EMBOSSED + PAPEL DE ALGODÓN)
    ========================================================================== */
-.ambient-grain-layer {
+.decor-wallpaper-relief {
     position: fixed;
     inset: 0;
-    width: 100%;
-    height: 100%;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.048;
+    background-image:
+        linear-gradient(45deg, transparent 48%, var(--pattern-highlight) 49.5%, transparent 51%),
+        linear-gradient(-45deg, transparent 48%, var(--pattern-highlight) 49.5%, transparent 51%),
+        linear-gradient(45deg, transparent 48.5%, var(--pattern-line) 50%, transparent 51.5%),
+        linear-gradient(-45deg, transparent 48.5%, var(--pattern-line) 50%, transparent 51.5%);
+    background-size: 38px 38px;
+    background-position: 0 1px, 0 1px, 0 0, 0 0;
 }
 
-.ambient-warm-glow {
+.decor-cotton-grain {
     position: fixed;
-    top: -120px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(720px, 120vw);
-    height: 480px;
-    background: radial-gradient(ellipse at center, rgba(250, 197, 122, 0.15) 0%, transparent 72%);
+    inset: 0;
     pointer-events: none;
     z-index: 2;
-    filter: blur(50px);
+    opacity: var(--grain-opacity);
+    mix-blend-mode: var(--grain-blend);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cottonGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.15 0 0 0 0 0.12 0 0 0 0 0.09 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cottonGrain)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
 }
 
-body[data-theme="chalk"] .ambient-warm-glow {
-    background: radial-gradient(ellipse at center, rgba(250, 197, 122, 0.28) 0%, transparent 72%);
+.decor-ambient-light {
+    position: fixed;
+    top: -130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(880px, 120vw);
+    height: 500px;
+    background: radial-gradient(ellipse at center, var(--ambient-glow-color) 0%, transparent 72%);
+    pointer-events: none;
+    z-index: 3;
+    filter: blur(55px);
 }
 
+/* CONTENEDOR MAESTRO RESPONSIVE */
 .master-hub-shell {
     width: 100%;
-    max-width: 485px;
+    max-width: 480px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
     z-index: 10;
     position: relative;
-    margin: 0 auto;
+}
+
+.editorial-grid-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.identity-rail,
+.showcase-rail {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
 }
 
 /* ==========================================================================
-   3. MARQUESINA PROMO OFICIAL: 12 CUOTAS SIN INTERÉS
+   4. MARQUESINA SUPERIOR CÁPSULA CON DESVANECIMIENTO (CERO CORTES EN PC)
    ========================================================================== */
-.promo-gold-tape {
-    width: calc(100% + 28px);
-    margin-left: -14px;
-    margin-right: -14px;
-    background: var(--color-gold);
-    color: var(--color-walnut);
-    overflow: hidden;
-    padding: 8px 0;
-    display: flex;
-    white-space: nowrap;
-    position: relative;
-    z-index: 20;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
-}
-
-.tape-track {
-    display: inline-flex;
-    gap: 28px;
-    animation: tapeLoop 22s linear infinite;
-    will-change: transform;
-}
-
-.tape-track span {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
+.official-promo-marquee {
+    width: 100%;
+    background: var(--marquee-bg);
+    color: var(--marquee-text);
+    border: 1px solid var(--color-border);
+    font-size: 0.70rem;
     font-weight: 800;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+    padding: 9px 0;
+    border-radius: 999px;
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
 }
 
-@keyframes tapeLoop {
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marqueeScroll 32s linear infinite;
+    will-change: transform;
+}
+
+.marquee-group {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.marquee-group span {
+    display: inline-block;
+    padding-right: 44px;
+    white-space: nowrap;
+}
+
+@keyframes marqueeScroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
 
 /* ==========================================================================
-   4. BARRA DE UTILIDAD SUPERIOR (MODO Y ESTADO EN VIVO)
+   5. DOCK SUPERIOR DE AMBIENTES & ESTADO EN VIVO
    ========================================================================== */
-.top-nav-bar {
-    width: 100%;
+.ambience-dock {
+    background: var(--bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    min-height: 40px;
+    padding: 5px 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 2px 2px;
+    gap: 10px;
+    width: 100%;
+    box-shadow: var(--shadow-card);
 }
 
-.theme-switch-pill {
-    background: var(--bg-surface);
-    border: 1.5px solid var(--border-subtle);
-    color: var(--color-text-main);
-    padding: 6px 14px;
-    border-radius: 999px;
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
+.ambience-left-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ambience-dock-label {
+    font-size: 0.70rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    cursor: pointer;
+    color: var(--color-wood);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    box-shadow: var(--shadow-card);
-    transition: all 0.25s var(--spring);
+    gap: 6px;
 }
 
-.theme-switch-pill:hover {
-    border-color: var(--border-active);
-    transform: translateY(-2px);
-}
-
-.theme-switch-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--color-gold);
-    box-shadow: 0 0 8px var(--color-gold);
+.ambience-dock-label svg {
+    width: 13px;
+    height: 13px;
+    stroke-width: 2.2;
 }
 
 .live-status-pill {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
+    gap: 5px;
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 800;
-    color: var(--color-text-muted);
-    letter-spacing: 0.06em;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
+    color: var(--color-text-muted);
+    padding-left: 10px;
+    border-left: 1px solid var(--color-border);
 }
 
 .live-status-beacon {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: #22C55E;
     box-shadow: 0 0 8px #22C55E;
-    animation: beaconPulse 2s infinite;
+    animation: beaconPulse 2.2s infinite;
 }
 
 @keyframes beaconPulse {
@@ -240,169 +314,241 @@ body[data-theme="chalk"] .ambient-warm-glow {
     50% { opacity: 0.45; transform: scale(0.8); }
 }
 
+.ambience-swatches {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.ambience-tab {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0, 0, 0, 0.18);
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.25s var(--spring), border-color 0.25s ease;
+}
+
+.ambience-tab::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+}
+
+.ambience-tab.active {
+    transform: scale(1.22);
+    border-color: var(--color-text-title);
+    box-shadow: 0 0 0 2px var(--bg-surface), 0 2px 6px rgba(0, 0, 0, 0.22);
+}
+
+.tab-lino  { background: #FAF7F2; border-color: #351703; }
+.tab-arena { background: #B38656; }
+.tab-noir  { background: #351703; }
+
 /* ==========================================================================
-   5. MONUMENTO HERO: LOGO OFICIAL CON AIRE NOBLE
+   6. MONUMENTO DE MARCA: LOGO MONEDA SVG OFICIAL + REFLEJO EN CRISTAL
    ========================================================================== */
-.brand-hero-monument {
+.brand-monument {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 6px 2px 2px;
+    padding: 6px 4px 0;
     gap: 12px;
 }
 
-.logo-emblem-wrap {
-    width: 100%;
-    max-width: 280px;
+.coin-monument-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+}
+
+.coin-medallion-frame {
+    width: 176px;
+    height: 176px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(145deg, rgba(250, 197, 122, 0.55) 0%, rgba(53, 23, 3, 0.22) 100%);
+    box-shadow: 0 14px 32px -6px rgba(53, 23, 3, 0.26), 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.35s var(--spring), box-shadow 0.35s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
-    transition: transform 0.3s var(--spring);
 }
 
-.logo-emblem-wrap:hover {
-    transform: scale(1.025);
+.coin-monument-stage:hover .coin-medallion-frame,
+.coin-monument-stage:focus-visible .coin-medallion-frame {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 20px 42px -8px rgba(53, 23, 3, 0.34), 0 0 20px var(--color-gold-glow);
 }
 
-.brand-svg-official {
+.barone-coin-svg {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    border-radius: 50%;
 }
 
-body[data-theme="chalk"] .barone-cls-3 {
-    fill: #351703 !important;
+.barone-coin-svg .cls-1 { fill: #351703; }
+.barone-coin-svg .cls-2 { fill: #FAC57A; }
+.barone-coin-svg .cls-3 { fill: #F8C577; }
+.barone-coin-svg .cls-4 { fill: #FFFFFF; }
+
+.coin-glass-reflection {
+    width: 132px;
+    height: 14px;
+    margin-top: 6px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(53, 23, 3, 0.22) 0%, transparent 72%);
+    filter: blur(2px);
+    pointer-events: none;
 }
 
-.brand-tag-line {
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
+body[data-palette="noir"] .coin-glass-reflection {
+    background: radial-gradient(ellipse at center, rgba(250, 197, 122, 0.22) 0%, transparent 72%);
+}
+
+.brand-sub-tag {
+    font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--color-gold);
+    color: var(--color-wood-soft);
 }
 
-body[data-theme="chalk"] .brand-tag-line {
-    color: var(--color-walnut-soft);
-}
-
-.manifesto-box-warm {
+.brand-manifesto-capsule {
     background: var(--bg-surface);
-    border: 1.5px solid var(--border-subtle);
-    border-radius: 20px;
-    padding: 16px 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    padding: 15px 18px;
     box-shadow: var(--shadow-card);
     width: 100%;
 }
 
-.manifesto-phrase-quote {
+.manifesto-quote-text {
     font-family: var(--font-serif);
-    font-size: 1.34rem;
+    font-size: 1.28rem;
     font-style: italic;
     font-weight: 600;
-    color: var(--color-gold);
-    line-height: 1.25;
+    color: var(--color-text-title);
+    line-height: 1.3;
 }
 
-body[data-theme="chalk"] .manifesto-phrase-quote {
-    color: var(--color-walnut);
-}
-
-.manifesto-sub-copy {
-    font-size: 0.82rem;
+.manifesto-sub-desc {
+    font-size: 0.80rem;
     color: var(--color-text-muted);
-    margin-top: 8px;
-    line-height: 1.5;
+    margin-top: 6px;
+    line-height: 1.48;
     font-weight: 500;
 }
 
-.highlights-chips-row {
+/* PILARES VECTORIALES NOBLES (SIN EMOJIS) */
+.studio-pillars-row {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 7px;
     flex-wrap: wrap;
-    margin-top: 2px;
 }
 
-.highlight-chip {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
+.pillar-chip {
+    font-size: 0.67rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    padding: 6px 12px;
+    padding: 6px 11px;
     border-radius: 999px;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    color: var(--color-text-main);
-    box-shadow: var(--shadow-card);
+    background: var(--badge-bg);
+    color: var(--badge-text);
+    border: 1px solid var(--color-border);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    animation: subtleFloating 4.8s ease-in-out infinite alternate;
+}
+
+.pillar-chip:nth-child(2) { animation-delay: 0.8s; }
+.pillar-chip:nth-child(3) { animation-delay: 1.6s; }
+.pillar-chip:nth-child(4) { animation-delay: 2.4s; }
+
+@keyframes subtleFloating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-2.5px); box-shadow: 0 4px 10px rgba(53, 23, 3, 0.07); }
+    100% { transform: translateY(0); }
+}
+
+.pillar-svg {
+    width: 13px;
+    height: 13px;
+    stroke-width: 2;
+    fill: none;
+    stroke: currentColor;
 }
 
 /* ==========================================================================
-   6. CTA HEROICO WHATSAPP (CON ANIMACIÓN SHEEN CONTINUA)
+   7. HERO CTA PRINCIPAL (CUERO & NOGAL CON SHEEN SWEEP)
    ========================================================================== */
-.btn-whatsapp-hero {
+.card-hero-custom-furniture {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 16px;
     padding: 20px 22px;
-    background: linear-gradient(135deg, #220F02 0%, #351703 100%);
-    border: 2px solid var(--color-gold);
-    border-radius: 22px;
+    background: linear-gradient(135deg, #351703 0%, #220F02 100%);
+    border: 1.5px solid var(--color-gold);
+    border-radius: 20px;
     text-decoration: none;
     color: #FFFFFF;
-    box-shadow: 0 14px 36px -6px rgba(0, 0, 0, 0.6), 0 0 20px var(--color-gold-glow);
+    box-shadow: 0 14px 34px -6px rgba(53, 23, 3, 0.34), 0 0 18px rgba(250, 197, 122, 0.14);
     position: relative;
     overflow: hidden;
     transition: transform 0.28s var(--spring), box-shadow 0.28s ease;
     cursor: pointer;
 }
 
-body[data-theme="chalk"] .btn-whatsapp-hero {
-    background: linear-gradient(135deg, #351703 0%, #4A240A 100%);
+body[data-palette="arena"] .card-hero-custom-furniture {
+    background: linear-gradient(135deg, #694426 0%, #432914 100%);
 }
 
-.btn-whatsapp-hero::before {
+.card-hero-custom-furniture::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -130%;
-    width: 65%;
+    left: -120%;
+    width: 60%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(250, 197, 122, 0.45), transparent);
+    background: linear-gradient(90deg, transparent 0%, rgba(250, 197, 122, 0.28) 50%, transparent 100%);
     transform: skewX(-25deg);
-    animation: goldSweep 6s infinite ease-in-out;
+    animation: lightSweep 5.5s infinite ease-in-out;
 }
 
-@keyframes goldSweep {
-    0%, 50% { left: -130%; }
-    80%, 100% { left: 180%; }
+@keyframes lightSweep {
+    0%, 60% { left: -120%; }
+    85%, 100% { left: 180%; }
 }
 
-.btn-whatsapp-hero:hover {
-    transform: translateY(-3px) scale(1.015);
-    box-shadow: 0 18px 44px -8px rgba(250, 197, 122, 0.35);
+.card-hero-custom-furniture:hover {
+    transform: translateY(-3px) scale(1.012);
+    box-shadow: 0 20px 42px -8px rgba(53, 23, 3, 0.42), 0 0 26px rgba(250, 197, 122, 0.24);
 }
 
-.hero-wa-left {
+.hero-custom-info {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 4px;
     position: relative;
     z-index: 2;
 }
 
-.hero-wa-beacon-tag {
+.hero-live-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: var(--font-mono);
     font-size: 0.66rem;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -410,7 +556,8 @@ body[data-theme="chalk"] .btn-whatsapp-hero {
     color: var(--color-gold);
 }
 
-.beacon-circle {
+.hero-live-badge::before {
+    content: '';
     width: 6px;
     height: 6px;
     border-radius: 50%;
@@ -418,422 +565,427 @@ body[data-theme="chalk"] .btn-whatsapp-hero {
     box-shadow: 0 0 8px #25D366;
 }
 
-.hero-wa-headline {
+.hero-main-title {
     font-family: var(--font-serif);
-    font-size: 1.55rem;
+    font-size: 1.48rem;
     font-weight: 600;
     line-height: 1.15;
-    letter-spacing: 0.01em;
+    color: #FFFFFF;
 }
 
-.hero-wa-phone {
+.hero-sub-detail {
     font-size: 0.78rem;
-    color: var(--color-text-muted);
+    color: #EBDCCF;
+    line-height: 1.4;
     font-weight: 500;
 }
 
-.hero-wa-icon-bubble {
-    width: 50px;
-    height: 50px;
+.hero-action-circle {
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background: #25D366;
-    color: #FFFFFF;
+    background: #FFFFFF;
+    color: #351703;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 2;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
 }
 
-.btn-whatsapp-hero:hover .hero-wa-icon-bubble {
-    transform: scale(1.1) rotate(12deg);
+.card-hero-custom-furniture:hover .hero-action-circle {
+    transform: scale(1.1) rotate(45deg);
+    background: #FAC57A;
 }
 
-.hero-wa-icon-bubble svg {
-    width: 25px;
-    height: 25px;
+.hero-action-circle svg {
+    width: 19px;
+    height: 19px;
+    stroke-width: 2.2;
 }
 
 /* ==========================================================================
-   7. BENTO ACTIONS GRID
+   8. BENTO GRID DE ACCESOS DIRECTOS
    ========================================================================== */
-.bento-editorial-grid {
+.bento-actions-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
 }
 
-.bento-tile {
+.bento-card {
     background: var(--bg-surface);
-    border: 1.5px solid var(--border-subtle);
+    border: 1px solid var(--color-border);
     border-radius: 18px;
     padding: 16px 18px;
     text-decoration: none;
-    color: var(--color-text-main);
+    color: var(--color-text-title);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 126px;
+    min-height: 122px;
     box-shadow: var(--shadow-card);
-    transition: transform 0.28s var(--spring), border-color 0.28s ease, box-shadow 0.28s ease;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s var(--spring);
     position: relative;
-    overflow: hidden;
+    will-change: transform;
 }
 
-.bento-tile:hover {
-    transform: translateY(-3px);
-    border-color: var(--border-active);
+.bento-card:hover {
+    border-color: var(--color-border-hover);
     box-shadow: var(--shadow-hover);
 }
 
-.bento-span-2 {
+.bento-card.full-width {
     grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
     min-height: auto;
     padding: 18px 20px;
 }
 
-.bento-gold-card {
+.bento-card.tienda-highlight {
+    border-left: 4px solid var(--color-wood);
+}
+
+body[data-palette="noir"] .bento-card.tienda-highlight {
     border-left: 4px solid var(--color-gold);
 }
 
-.bento-quote-card {
-    background: var(--bg-surface-elevated);
-    justify-content: flex-start;
-    gap: 8px;
+.bento-full-content {
+    flex: 1;
 }
 
-.bento-tile-meta {
+.bento-kicker-tag {
+    display: block;
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-wood-soft);
+    margin-bottom: 4px;
+}
+
+.bento-top-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 
-.bento-category-tag {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-gold);
+.bento-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--bg-surface-elevated);
+    color: var(--color-wood);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.22s ease;
 }
 
-body[data-theme="chalk"] .bento-category-tag {
-    color: var(--color-walnut-soft);
+.bento-card:hover .bento-icon-box {
+    background: var(--color-wood);
+    color: #FFFFFF;
 }
 
-.bento-arrow-diag {
-    font-family: var(--font-mono);
-    font-size: 0.95rem;
-    color: var(--color-gold);
-    opacity: 0.75;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+body[data-palette="noir"] .bento-card:hover .bento-icon-box {
+    color: #351703;
 }
 
-.bento-tile:hover .bento-arrow-diag {
-    transform: translate(3px, -3px);
+.bento-icon-box svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+}
+
+.bento-arrow-hint {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    opacity: 0.55;
+    transition: transform 0.22s ease, opacity 0.22s ease, color 0.22s ease;
+}
+
+.bento-card:hover .bento-arrow-hint {
     opacity: 1;
+    transform: translate(2px, -2px);
+    color: var(--color-wood);
 }
 
-.bento-title-main {
-    font-family: var(--font-sans);
-    font-size: 1.05rem;
+.bento-title {
+    font-size: 0.96rem;
     font-weight: 800;
     line-height: 1.25;
-    letter-spacing: -0.01em;
+    color: var(--color-text-title);
+    margin-bottom: 3px;
 }
 
-.bento-sub-detail {
+.bento-caption {
     font-size: 0.76rem;
     color: var(--color-text-muted);
-    margin-top: 4px;
     line-height: 1.4;
     font-weight: 500;
 }
 
-.quote-feed-text {
+.bento-advice-card {
+    background: var(--bg-surface-elevated);
+}
+
+.advice-serif-quote {
     font-family: var(--font-serif);
-    font-size: 1.05rem;
+    font-size: 1.04rem;
     font-style: italic;
-    color: var(--color-text-main);
-    line-height: 1.35;
+    font-weight: 600;
+    color: var(--color-text-title);
+    line-height: 1.32;
 }
 
 /* ==========================================================================
-   8. SHOWCASE MOTION: VIDEOS BOOMERANG INTERACTIVOS
+   9. SHOWCASES EDITORIALES (VIDEOS & FOTOS SIN RECORTES)
    ========================================================================== */
-.showcase-motion-section {
+.showcase-wrapper {
     background: var(--bg-surface);
-    border: 1.5px solid var(--border-subtle);
+    border: 1px solid var(--color-border);
     border-radius: 22px;
-    padding: 20px 16px;
+    padding: 18px 16px 20px;
+    box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
     gap: 14px;
-    box-shadow: var(--shadow-card);
 }
 
-.showcase-header-row {
+.showcase-header {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    gap: 10px;
     padding: 0 4px;
 }
 
-.section-kicker {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--color-gold);
-    display: block;
-    margin-bottom: 2px;
-}
-
-body[data-theme="chalk"] .section-kicker {
-    color: var(--color-walnut-soft);
-}
-
-.section-headline-serif {
+.showcase-title-serif {
     font-family: var(--font-serif);
-    font-size: 1.45rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-size: 1.40rem;
+    font-weight: 600;
+    color: var(--color-text-title);
+    line-height: 1.1;
 }
 
-.motion-badge-pill {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 800;
-    padding: 3px 8px;
-    border-radius: 999px;
-    background: var(--bg-surface-elevated);
-    border: 1px solid var(--border-subtle);
-    color: var(--color-gold);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+.showcase-subtitle {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    margin-top: 2px;
 }
 
 .showcase-link-more {
-    font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-gold);
+    color: var(--color-wood);
     text-decoration: none;
-    transition: opacity 0.2s ease;
+    white-space: nowrap;
 }
 
-.showcase-link-more:hover {
-    opacity: 0.75;
+/* EN MÓVIL: TIRA HORIZONTAL SUAVE CON SCROLL-SNAP */
+.motion-strip-scroll,
+.gallery-strip-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 4px 2px 8px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
 }
 
-.motion-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
+.motion-strip-scroll::-webkit-scrollbar,
+.gallery-strip-scroll::-webkit-scrollbar {
+    display: none;
 }
 
-.motion-asset-card {
-    background: var(--bg-surface-elevated);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
+.motion-decor-card,
+.product-decor-card {
+    flex: 0 0 184px;
+    scroll-snap-align: start;
+    background: var(--bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    transition: transform 0.28s var(--spring), border-color 0.28s ease;
+    gap: 9px;
+    text-decoration: none;
+    color: var(--color-text-title);
+    box-shadow: 0 4px 14px rgba(53, 23, 3, 0.04);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s var(--spring);
+    will-change: transform;
+    user-select: none;
 }
 
-.motion-asset-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--border-active);
+.motion-decor-card:hover,
+.product-decor-card:hover {
+    border-color: var(--color-border-hover);
+    box-shadow: var(--shadow-hover);
 }
 
-.video-frame-box {
+.motion-media-box {
     width: 100%;
-    aspect-ratio: 9 / 16;
-    border-radius: 12px;
+    aspect-ratio: 4 / 5;
+    border-radius: 10px;
     overflow: hidden;
+    background-color: var(--bg-surface-elevated);
     position: relative;
-    background: #110701;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    cursor: grab;
+    touch-action: pan-y;
+}
+
+.motion-media-box:active {
+    cursor: grabbing;
 }
 
 .boomerang-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: translateZ(0);
+    object-position: center;
 }
 
-.asset-format-badge {
-    position: absolute;
-    top: 6px;
-    left: 6px;
-    background: rgba(34, 15, 2, 0.85);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(250, 197, 122, 0.4);
-    color: #FAC57A;
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
-    font-weight: 800;
-    padding: 2px 6px;
-    border-radius: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    pointer-events: none;
-}
-
-.motion-card-footer {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.asset-title-text {
-    font-size: 0.82rem;
-    font-weight: 800;
-    line-height: 1.25;
-}
-
-.asset-desc-text {
-    font-size: 0.68rem;
-    color: var(--color-text-muted);
-    line-height: 1.35;
-    font-weight: 500;
-}
-
-/* ==========================================================================
-   9. GALERÍA SCROLL HORIZONTAL DE MESAS & LIVING
-   ========================================================================== */
-.gallery-scroll-track {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 4px 2px 10px;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-}
-
-.gallery-scroll-track::-webkit-scrollbar {
-    display: none;
-}
-
-.gallery-item-card {
-    flex: 0 0 clamp(190px, 48vw, 220px);
-    scroll-snap-align: start;
-    background: var(--bg-surface-elevated);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    transition: transform 0.28s var(--spring), border-color 0.28s ease;
-}
-
-.gallery-item-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--border-active);
-}
-
-.gallery-photo-frame {
+.decor-img-container {
     width: 100%;
-    height: clamp(150px, 24vw, 175px);
-    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
     overflow: hidden;
+    background-color: var(--bg-surface-elevated);
     position: relative;
-    background: #110701;
 }
 
-.gallery-photo-frame img {
+.decor-img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.45s ease;
 }
 
-.gallery-item-card:hover .gallery-photo-frame img {
+.product-decor-card:hover .decor-img-container img {
     transform: scale(1.06);
 }
 
-.gallery-corner-tag {
+.decor-tag-badge {
     position: absolute;
     top: 6px;
     left: 6px;
-    background: rgba(34, 15, 2, 0.85);
+    background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(4px);
-    border: 1px solid rgba(250, 197, 122, 0.4);
-    color: #FAC57A;
-    font-family: var(--font-mono);
-    font-size: 0.58rem;
+    color: #351703;
+    font-size: 0.60rem;
     font-weight: 800;
-    padding: 2px 6px;
-    border-radius: 6px;
-    text-transform: uppercase;
     letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    pointer-events: none;
 }
 
-.gallery-meta-box {
+.decor-meta-block {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.gallery-item-title {
-    font-size: 0.86rem;
-    font-weight: 800;
-    line-height: 1.25;
+.decor-item-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.28;
+    color: var(--color-text-title);
 }
 
-.gallery-item-note {
+.decor-item-note {
     font-size: 0.72rem;
     color: var(--color-text-muted);
-    line-height: 1.35;
     font-weight: 500;
+    line-height: 1.35;
 }
 
 /* ==========================================================================
-   10. SUCURSALES & HORARIOS OFICIALES
+   10. SHOWROOMS & MAPA GOOGLE EMBEBIDO INTERACTIVO
    ========================================================================== */
-.locations-board-card {
+.atelier-map-card {
     background: var(--bg-surface);
-    border: 1.5px solid var(--border-subtle);
+    border: 1px solid var(--color-border);
     border-radius: 22px;
-    padding: 20px 18px;
+    padding: 18px 16px;
+    box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    box-shadow: var(--shadow-card);
+    gap: 13px;
 }
 
-.locations-board-header {
+.atelier-map-header {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: wrap;
+}
+
+.atelier-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.atelier-pin-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-surface-elevated);
+    color: var(--color-wood);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.atelier-pin-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2.2;
+}
+
+.atelier-header-texts {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.atelier-name {
+    font-family: var(--font-serif);
+    font-size: 1.30rem;
+    font-weight: 600;
+    color: var(--color-text-title);
+}
+
+.atelier-address-sub {
+    font-size: 0.76rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
 }
 
 .hours-tag-today {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: var(--color-gold);
-    background: var(--bg-surface-elevated);
-    border: 1px solid var(--border-subtle);
-    padding: 4px 10px;
+    font-size: 0.64rem;
+    font-weight: 700;
+    color: var(--badge-text);
+    background: var(--badge-bg);
+    border: 1px solid var(--color-border);
+    padding: 5px 10px;
     border-radius: 999px;
     text-transform: uppercase;
 }
@@ -846,196 +998,225 @@ body[data-theme="chalk"] .section-kicker {
 
 .branch-tab-btn {
     background: var(--bg-surface-elevated);
-    border: 1px solid var(--border-subtle);
-    color: var(--color-text-main);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-title);
     padding: 10px 12px;
     border-radius: 12px;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.76rem;
     font-weight: 800;
-    cursor: pointer;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    cursor: pointer;
     transition: all 0.22s var(--spring);
 }
 
 .branch-tab-btn.active {
-    background: var(--color-gold);
-    color: var(--color-walnut);
-    border-color: var(--color-gold);
-    box-shadow: 0 4px 14px rgba(250, 197, 122, 0.35);
+    background: var(--color-wood);
+    color: #FFFFFF;
+    border-color: var(--color-wood);
+    box-shadow: 0 4px 12px var(--color-wood-glow);
 }
 
-.branch-detail-panel {
-    background: var(--bg-surface-elevated);
-    border: 1px solid var(--border-subtle);
+body[data-palette="noir"] .branch-tab-btn.active {
+    color: #351703;
+}
+
+.atelier-map-frame {
+    width: 100%;
+    height: 245px;
     border-radius: 14px;
-    padding: 14px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--bg-surface-elevated);
 }
 
-.branch-name-title {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-gold);
-}
-
-body[data-theme="chalk"] .branch-name-title {
-    color: var(--color-walnut);
-}
-
-.branch-address-text {
-    font-size: 0.84rem;
-    color: var(--color-text-main);
-    font-weight: 600;
-    line-height: 1.4;
+.atelier-map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
 }
 
 .branch-actions-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 8px;
-    margin-top: 4px;
 }
 
-.branch-map-btn {
-    display: inline-flex;
+.atelier-open-directions {
+    display: flex;
     align-items: center;
-    gap: 6px;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    color: var(--color-text-main);
-    padding: 7px 12px;
-    border-radius: 8px;
-    font-size: 0.72rem;
+    justify-content: space-between;
+    gap: 8px;
+    background: var(--bg-surface-elevated);
+    border: 1px solid var(--color-border);
+    padding: 11px 14px;
+    border-radius: 12px;
+    font-size: 0.76rem;
     font-weight: 700;
+    color: var(--color-text-title);
     text-decoration: none;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-.branch-map-btn:hover {
-    border-color: var(--border-active);
+.atelier-open-directions:hover {
+    border-color: var(--color-border-hover);
+    background-color: var(--badge-bg);
 }
 
 .official-schedule-box {
-    border-top: 1px dashed var(--border-subtle);
+    border-top: 1px dashed var(--color-border);
     padding-top: 12px;
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 6px;
 }
 
 .schedule-title-head {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 800;
+    font-size: 0.66rem;
+    font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--color-text-muted);
+    margin-bottom: 2px;
 }
 
 .schedule-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 0.82rem;
+    font-size: 0.80rem;
     gap: 10px;
     flex-wrap: wrap;
 }
 
 .schedule-day {
     font-weight: 700;
-    color: var(--color-text-main);
+    color: var(--color-text-title);
 }
 
 .schedule-hours {
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     color: var(--color-text-muted);
-}
-
-.schedule-row.is-today {
-    color: var(--color-gold);
 }
 
 .schedule-row.is-today .schedule-day,
 .schedule-row.is-today .schedule-hours {
-    color: var(--color-gold);
+    color: var(--color-wood);
     font-weight: 800;
 }
 
 /* ==========================================================================
-   11. FOOTER CORPORATIVO
+   11. BARRA SOCIAL, FOOTER & WHATSAPP FLOTANTE
    ========================================================================== */
-.hub-editorial-footer {
-    margin-top: 10px;
+.social-network-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.desktop-only-social {
+    display: none;
+}
+
+.mobile-only-social {
+    display: flex;
+}
+
+.social-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-wood);
+    text-decoration: none;
+    box-shadow: var(--shadow-card);
+    transition: all 0.22s var(--spring);
+}
+
+.social-pill-btn:hover {
+    transform: translateY(-2px) scale(1.06);
+    background: var(--color-wood);
+    color: #FFFFFF;
+    border-color: var(--color-wood);
+}
+
+body[data-palette="noir"] .social-pill-btn:hover {
+    color: #351703;
+}
+
+.social-pill-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.social-pill-btn svg[fill="none"] {
+    fill: none;
+}
+
+.hub-colophon {
+    margin-top: 8px;
     padding-top: 22px;
-    border-top: 1px dashed var(--border-subtle);
+    border-top: 1px solid var(--color-border);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 8px;
+    gap: 6px;
 }
 
-.footer-brand-title {
+.colophon-signature {
     font-family: var(--font-serif);
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--color-gold);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-title);
 }
 
-body[data-theme="chalk"] .footer-brand-title {
-    color: var(--color-walnut);
-}
-
-.footer-motto-text {
+.colophon-atelier-text {
     font-size: 0.76rem;
     color: var(--color-text-muted);
+    max-width: 520px;
     line-height: 1.5;
-    max-width: 420px;
+    font-weight: 500;
 }
 
-.footer-channels-links {
+.colophon-links-legal {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
-    font-size: 0.74rem;
+    justify-content: center;
+    font-size: 0.72rem;
     font-weight: 700;
-    color: var(--color-gold);
-}
-
-body[data-theme="chalk"] .footer-channels-links {
-    color: var(--color-walnut-soft);
-}
-
-.footer-channels-links a {
-    text-decoration: none;
-    transition: text-decoration 0.2s ease;
-}
-
-.footer-channels-links a:hover {
-    text-decoration: underline;
-}
-
-.footer-legal-copy {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--color-text-faded);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    color: var(--color-text-muted);
     margin-top: 4px;
 }
 
-/* ==========================================================================
-   12. BOTÓN FLOTANTE WHATSAPP CON ANCLAJE SEGURO
-   ========================================================================== */
-.floating-whatsapp-anchor {
+.colophon-links-legal a {
+    color: var(--color-wood);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.colophon-copy {
+    font-size: 0.66rem;
+    color: var(--color-text-muted);
+    opacity: 0.75;
+    margin-top: 2px;
+    letter-spacing: 0.04em;
+}
+
+.floating-whatsapp-wrap {
     position: fixed;
     bottom: calc(20px + env(safe-area-inset-bottom));
     right: 18px;
@@ -1046,84 +1227,927 @@ body[data-theme="chalk"] .footer-channels-links {
     text-decoration: none;
 }
 
-.floating-wa-label {
-    background: #220F02;
-    border: 1px solid var(--color-gold);
-    color: #FAC57A;
-    font-family: var(--font-mono);
-    font-size: 0.70rem;
+.floating-whatsapp-pill-label {
+    background: #FFFFFF;
+    color: #128C7E;
+    font-size: 0.72rem;
     font-weight: 800;
     padding: 6px 12px;
     border-radius: 999px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-    letter-spacing: 0.06em;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     transition: transform 0.2s ease;
 }
 
-.floating-wa-circle {
-    width: 50px;
-    height: 50px;
+.floating-whatsapp-btn {
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: #25D366;
+    background-color: #25D366;
     color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.42);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.38);
     transition: transform 0.25s var(--spring);
 }
 
-.floating-whatsapp-anchor:hover .floating-wa-circle {
-    transform: scale(1.1) rotate(12deg);
+.floating-whatsapp-wrap:hover .floating-whatsapp-btn {
+    transform: scale(1.08) translateY(-2px);
 }
 
-.floating-whatsapp-anchor:hover .floating-wa-label {
+.floating-whatsapp-wrap:hover .floating-whatsapp-pill-label {
     transform: translateX(-3px);
 }
 
-.floating-wa-circle svg {
-    width: 25px;
-    height: 25px;
+.floating-whatsapp-btn svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
 }
 
 /* ==========================================================================
-   13. ADAPTACIÓN RESPONSIVA (320px HASTA TABLETS/PC)
+   12. RESPONSIVE DESKTOP ARQUITECTÓNICO (>= 920px) — CERO "VISTA MÓVIL EN PC"
    ========================================================================== */
-@media (max-width: 440px) {
-    .motion-cards-grid {
-        grid-template-columns: 1fr;
+@media (min-width: 920px) {
+    body {
+        padding: 22px 28px 64px;
+    }
+
+    .master-hub-shell {
+        max-width: 1120px;
+        gap: 22px;
+    }
+
+    .editorial-grid-shell {
+        display: grid;
+        grid-template-columns: 400px minmax(0, 1fr);
+        gap: 26px;
+        align-items: start;
+    }
+
+    .identity-rail {
+        position: sticky;
+        top: 20px;
+        gap: 15px;
+    }
+
+    .showcase-rail {
+        gap: 20px;
+    }
+
+    .desktop-only-social {
+        display: flex;
+        margin-top: 4px;
+    }
+
+    .mobile-only-social {
+        display: none;
+    }
+
+    /* EN DESKTOP: LOS VIDEOS EN GRILLA 3 COLUMNAS EQUILIBRADA */
+    .motion-strip-scroll {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        overflow-x: visible;
+        padding: 2px 0;
         gap: 12px;
     }
-    .video-frame-box {
-        aspect-ratio: 16 / 9;
+
+    /* EN DESKTOP: LAS 4 FOTOS EN GRILLA SIMÉTRICA 2x2 */
+    .gallery-strip-scroll {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        overflow-x: visible;
+        padding: 2px 0;
+        gap: 14px;
     }
-    .bento-editorial-grid {
-        grid-template-columns: 1fr;
-    }
-    .bento-span-2 {
-        grid-column: span 1;
+
+    .motion-decor-card,
+    .product-decor-card {
+        flex: none;
+        width: 100%;
     }
 }
 
-@media (max-width: 360px) {
-    .master-hub-shell {
-        gap: 14px;
+@media (max-width: 420px) {
+    .bento-actions-grid {
+        grid-template-columns: 1fr;
     }
-    .hero-wa-headline {
-        font-size: 1.35rem;
+
+    .bento-card.full-width {
+        grid-column: span 1;
     }
-    .manifesto-phrase-quote {
-        font-size: 1.18rem;
+
+    .branch-actions-row {
+        grid-template-columns: 1fr;
+    }
+
+    .coin-medallion-frame {
+        width: 156px;
+        height: 156px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .tape-track,
-    .btn-whatsapp-hero::before {
+    .marquee-track,
+    .card-hero-custom-furniture::before,
+    .pillar-chip,
+    .live-status-beacon {
         animation: none;
     }
-    .boomerang-video {
-        animation: none;
+}
+```
+
+---
+
+### 3. `js/contract.js`
+
+```javascript
+/**
+ * js/contract.js
+ * Tienda Barone · Única fuente de verdad.
+ * Datos 100% oficiales y verificados (cero texto inventado, cero emojis).
+ */
+
+export const BARONE_EVENTS = Object.freeze({
+  PALETTE_CHANGED: 'barone:palette-changed',
+  BRANCH_CHANGED: 'barone:branch-changed',
+  STATUS_TICK: 'barone:status-tick',
+  UI_CLICK: 'barone:ui-click',
+});
+
+export const bus = new EventTarget();
+
+export function emitEvent(eventName, detail = {}) {
+  bus.dispatchEvent(new CustomEvent(eventName, { detail }));
+}
+
+export const PALETTES = Object.freeze({
+  lino: Object.freeze({
+    id: 'lino',
+    label: 'Lino & Nogal',
+    themeColor: '#FAF7F2',
+  }),
+  arena: Object.freeze({
+    id: 'arena',
+    label: 'Roble & Arena',
+    themeColor: '#F6F1E8',
+  }),
+  noir: Object.freeze({
+    id: 'noir',
+    label: 'Nogal Noir',
+    themeColor: '#351703',
+  }),
+});
+
+export const state = {
+  palette: 'lino',
+  activeBranch: 'lomas',
+  isOpenNow: false,
+};
+
+export const BRAND_DATA = Object.freeze({
+  name: 'Tienda Barone',
+  subline: 'Sillones · Muebles de Diseño',
+  tagline: 'Creamos espacios, creamos hogar',
+  perk: '12 cuotas sin interés',
+  contact: Object.freeze({
+    phoneDisplay: '11 4673-1570',
+    whatsappNumber: '5491146731570',
+    instagramHandle: '@tiendabarone',
+    instagramUrl: 'https://www.instagram.com/tiendabarone/',
+    websiteUrl: 'http://www.tiendabarone.com.ar/',
+  }),
+  branches: Object.freeze({
+    lomas: Object.freeze({
+      id: 'lomas',
+      name: 'Lomas de Zamora',
+      addressFull: 'Hipólito Yrigoyen 9039, Lomas de Zamora, Buenos Aires',
+      mapsUrl: 'https://maps.google.com/?q=Hipolito+Yrigoyen+9039,+Lomas+de+Zamora,+Buenos+Aires',
+      embedUrl: 'https://maps.google.com/maps?q=Hipolito+Yrigoyen+9039,+Lomas+de+Zamora,+Provincia+de+Buenos+Aires,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed',
+    }),
+    adrogue: Object.freeze({
+      id: 'adrogue',
+      name: 'Adrogué',
+      addressFull: 'Plaza Esteban Adrogué 48, Adrogué, Buenos Aires',
+      mapsUrl: 'https://maps.google.com/?q=Plaza+Esteban+Adrogue+48,+Adrogue,+Buenos+Aires',
+      embedUrl: 'https://maps.google.com/maps?q=Plaza+Esteban+Adrogue+48,+Adrogue,+Provincia+de+Buenos+Aires,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed',
+    }),
+  }),
+});
+
+/**
+ * Evaluador horario oficial en tiempo real para Argentina (America/Argentina/Buenos_Aires).
+ * Lunes a Viernes: 10:30 a 13:30 hs / 14:30 a 18:30 hs
+ * Sábados: 10:00 a 15:00 hs
+ * Domingos: Cerrado
+ */
+export function evaluateStoreOpenStatus(dateInput = new Date()) {
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Argentina/Buenos_Aires',
+    weekday: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  });
+
+  const parts = formatter.formatToParts(dateInput);
+  const map = Object.create(null);
+  for (let i = 0; i < parts.length; i++) {
+    map[parts[i].type] = parts[i].value;
+  }
+
+  const weekdayStr = map.weekday || 'Mon';
+  const hour = Number(map.hour) % 24;
+  const minute = Number(map.minute) || 0;
+  const timeVal = hour + minute / 60.0;
+
+  const isSunday = weekdayStr === 'Sun';
+  const isSaturday = weekdayStr === 'Sat';
+  const isWeekday = !isSunday && !isSaturday;
+
+  let isOpen = false;
+  let scheduleTodayText = '';
+
+  if (isWeekday) {
+    scheduleTodayText = 'Hoy: 10:30-13:30 / 14:30-18:30';
+    if ((timeVal >= 10.5 && timeVal < 13.5) || (timeVal >= 14.5 && timeVal < 18.5)) {
+      isOpen = true;
     }
+  } else if (isSaturday) {
+    scheduleTodayText = 'Hoy Sáb: 10:00 a 15:00 hs';
+    if (timeVal >= 10.0 && timeVal < 15.0) {
+      isOpen = true;
+    }
+  } else {
+    scheduleTodayText = 'Hoy Dom: Cerrado';
+    isOpen = false;
+  }
+
+  return {
+    isOpen,
+    isWeekday,
+    isSaturday,
+    isSunday,
+    scheduleTodayText,
+    badgeText: isOpen ? 'Abierto Ahora' : 'Cerrado Ahora',
+  };
+}
+```
+
+---
+
+### 4. `js/engine/math.js`
+
+```javascript
+/**
+ * js/engine/math.js
+ * Física determinística de resorte armónico de 2.º orden amortiguado y utilidades puras.
+ */
+
+export function clamp(val, min, max) {
+  if (!Number.isFinite(val)) return min;
+  return val < min ? min : val > max ? max : val;
+}
+
+export function createSpringState(initialValue = 0.0) {
+  return { val: initialValue, vel: 0.0 };
+}
+
+export function stepSpring(
+  spring,
+  target,
+  dt,
+  { wn = 14.0, zeta = 0.78, min = -Infinity, max = Infinity, subSteps = 2 } = {}
+) {
+  const h = clamp(dt, 0.0, 0.05);
+  if (h <= 1e-7) return spring.val;
+
+  const subDt = h / subSteps;
+  const wn2 = wn * wn;
+  const damp2 = 2.0 * zeta * wn;
+
+  for (let i = 0; i < subSteps; i++) {
+    const accel = wn2 * (target - spring.val) - damp2 * spring.vel;
+    spring.vel += accel * subDt;
+    spring.val = clamp(spring.val + spring.vel * subDt, min, max);
+  }
+  return spring.val;
+}
+```
+
+---
+
+### 5. `js/engine/director.js`
+
+```javascript
+/**
+ * js/engine/director.js
+ * Bucle maestro bajo demanda (Wake-on-Interaction / Idle-Sleep).
+ * Si ninguna tarea reporta trabajo activo, detiene requestAnimationFrame (0% CPU/GPU en reposo).
+ */
+
+import { clamp } from './math.js';
+
+export class EngineDirector {
+  constructor() {
+    this.tasks = [];
+    this.rafId = null;
+    this.lastTimeMs = 0;
+
+    this.reducedMotion =
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    this._observer =
+      typeof IntersectionObserver !== 'undefined'
+        ? new IntersectionObserver(
+            (entries) => {
+              let shouldWake = false;
+              for (let i = 0; i < entries.length; i++) {
+                const entry = entries[i];
+                for (let j = 0; j < this.tasks.length; j++) {
+                  const task = this.tasks[j];
+                  if (task.element === entry.target) {
+                    const wasVis = task.visible;
+                    task.visible = entry.isIntersecting;
+                    if (!wasVis && task.visible) {
+                      shouldWake = true;
+                    }
+                  }
+                }
+              }
+              if (shouldWake) this.requestWake();
+            },
+            { rootMargin: '80px 0px' }
+          )
+        : null;
+
+    if (typeof document !== 'undefined') {
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          this.stop();
+        } else {
+          this.requestWake();
+        }
+      });
+    }
+  }
+
+  register(config) {
+    const task = {
+      id: config.id || `task_${this.tasks.length}`,
+      element: config.element || null,
+      visible: true,
+      onTick: typeof config.onTick === 'function' ? config.onTick : null,
+      onResize: typeof config.onResize === 'function' ? config.onResize : null,
+    };
+
+    this.tasks.push(task);
+
+    if (this._observer && task.element) {
+      this._observer.observe(task.element);
+    }
+
+    if (task.onResize) {
+      task.onResize();
+    }
+
+    return task;
+  }
+
+  requestWake() {
+    if (this.reducedMotion || this.rafId !== null || (typeof document !== 'undefined' && document.hidden)) {
+      return;
+    }
+    this.lastTimeMs = 0;
+
+    const loop = (nowMs) => {
+      if (typeof document !== 'undefined' && document.hidden) {
+        this.rafId = null;
+        return;
+      }
+
+      if (this.lastTimeMs === 0) {
+        this.lastTimeMs = nowMs;
+      }
+      const rawDeltaMs = nowMs - this.lastTimeMs;
+      this.lastTimeMs = nowMs;
+
+      const dt = clamp(rawDeltaMs * 0.001, 0.001, 0.05);
+      const timeSec = nowMs * 0.001;
+
+      let hasActiveWork = false;
+      for (let i = 0; i < this.tasks.length; i++) {
+        const task = this.tasks[i];
+        if (!task.visible || !task.onTick) continue;
+        // La tarea devuelve true mientras siga animando; false al entrar en reposo
+        if (task.onTick(dt, timeSec) === true) {
+          hasActiveWork = true;
+        }
+      }
+
+      if (hasActiveWork) {
+        this.rafId = requestAnimationFrame(loop);
+      } else {
+        this.rafId = null;
+      }
+    };
+
+    this.rafId = requestAnimationFrame(loop);
+  }
+
+  stop() {
+    if (this.rafId !== null) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
+  }
+
+  triggerResizeAll() {
+    for (let i = 0; i < this.tasks.length; i++) {
+      if (this.tasks[i].onResize) {
+        this.tasks[i].onResize();
+      }
+    }
+  }
+}
+```
+
+---
+
+### 6. `js/engine/video-boomerang.js`
+
+```javascript
+/**
+ * js/engine/video-boomerang.js
+ * Gestor de reproducción continua y scrubbing táctil sin sobrecarga de decodificación.
+ * - Utiliza loop nativo del navegador (sin saltos ni pausas negras en timeupdate).
+ * - Pausa estricta fuera de pantalla (IntersectionObserver) y al ocultar la pestaña.
+ * - Scrubbing por puntero con setPointerCapture + throttling por frame (rAF).
+ */
+
+import { clamp } from './math.js';
+
+export function initVideoBoomerang() {
+  const videos = Array.from(document.querySelectorAll('.boomerang-video'));
+  if (videos.length === 0) return;
+
+  const videoStates = new Map();
+
+  for (let i = 0; i < videos.length; i++) {
+    const v = videos[i];
+    v.muted = true;
+    v.defaultMuted = true;
+    v.playsInline = true;
+    v.loop = true;
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    v.setAttribute('disablepictureinpicture', '');
+    v.setAttribute('disableremoteplayback', '');
+
+    const box = v.closest('.motion-media-box');
+    const st = {
+      video: v,
+      box,
+      isVisible: false,
+      activePointerId: null,
+      dragStartX: 0,
+      dragStartTime: 0,
+      duration: 3.0,
+      pendingSeek: null,
+      seekRaf: null,
+    };
+    videoStates.set(v, st);
+
+    v.addEventListener('loadedmetadata', () => {
+      st.duration = Math.max(0.5, v.duration || 3.0);
+    }, { once: true });
+
+    if (box) {
+      box.addEventListener('pointerdown', (e) => {
+        if (st.activePointerId !== null) return;
+        st.activePointerId = e.pointerId;
+        st.dragStartX = e.clientX;
+        st.dragStartTime = v.currentTime || 0;
+        try {
+          box.setPointerCapture(e.pointerId);
+          v.pause();
+        } catch (_) {}
+      });
+
+      box.addEventListener('pointermove', (e) => {
+        if (st.activePointerId !== e.pointerId) return;
+        const deltaX = e.clientX - st.dragStartX;
+        const offset = (deltaX / 180.0) * st.duration;
+        st.pendingSeek = clamp(st.dragStartTime + offset, 0.01, Math.max(0.05, st.duration - 0.05));
+
+        if (st.seekRaf === null) {
+          st.seekRaf = requestAnimationFrame(() => {
+            st.seekRaf = null;
+            if (st.pendingSeek !== null && !v.seeking) {
+              v.currentTime = st.pendingSeek;
+            }
+          });
+        }
+      });
+
+      const releasePointer = (e) => {
+        if (st.activePointerId !== e.pointerId) return;
+        st.activePointerId = null;
+        if (st.seekRaf !== null) {
+          cancelAnimationFrame(st.seekRaf);
+          st.seekRaf = null;
+        }
+        try { box.releasePointerCapture(e.pointerId); } catch (_) {}
+        if (st.isVisible && !document.hidden) {
+          v.play().catch(() => {});
+        }
+      };
+
+      box.addEventListener('pointerup', releasePointer);
+      box.addEventListener('pointercancel', releasePointer);
+    }
+  }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (let i = 0; i < entries.length; i++) {
+          const entry = entries[i];
+          const v = entry.target;
+          const st = videoStates.get(v);
+          if (!st) continue;
+
+          st.isVisible = entry.isIntersecting;
+          if (st.isVisible && !document.hidden && st.activePointerId === null) {
+            v.play().catch(() => {});
+          } else {
+            v.pause();
+          }
+        }
+      },
+      { threshold: 0.25, rootMargin: '40px 0px' }
+    );
+
+    for (let i = 0; i < videos.length; i++) {
+      observer.observe(videos[i]);
+    }
+  } else {
+    for (let i = 0; i < videos.length; i++) {
+      videos[i].play().catch(() => {});
+    }
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    for (let i = 0; i < videos.length; i++) {
+      const v = videos[i];
+      const st = videoStates.get(v);
+      if (document.hidden) {
+        if (!v.paused) v.pause();
+      } else if (st && st.isVisible && st.activePointerId === null) {
+        v.play().catch(() => {});
+      }
+    }
+  });
+}
+```
+
+---
+
+### 7. `js/ui/dom-controller.js`
+
+```javascript
+/**
+ * js/ui/dom-controller.js
+ * Controlador UI con dirty-checking, selector de ambientes (swatches),
+ * selector de Showrooms (Lomas / Adrogué) con Google Maps embebido,
+ * evaluador horario en vivo y física de resorte en tarjetas (desktop).
+ */
+
+import {
+  BRAND_DATA,
+  PALETTES,
+  BARONE_EVENTS,
+  state,
+  emitEvent,
+  evaluateStoreOpenStatus,
+} from '../contract.js';
+import { createSpringState, stepSpring } from '../engine/math.js';
+
+function triggerHaptic() {
+  if ('vibrate' in navigator) {
+    try { navigator.vibrate(8); } catch (_) {}
+  }
+}
+
+export function initDomController(director) {
+  const metaThemeColor = document.getElementById('metaThemeColor');
+  const ambienceActiveLabel = document.getElementById('ambienceActiveLabel');
+  const ambienceTabs = Array.from(document.querySelectorAll('.ambience-tab'));
+
+  const liveStatusBeacon = document.getElementById('liveStatusBeacon');
+  const liveStatusText = document.getElementById('liveStatusText');
+  const hoursTagToday = document.getElementById('hoursTagToday');
+
+  const activeBranchSub = document.getElementById('activeBranchSub');
+  const branchMapFrame = document.getElementById('branchMapFrame');
+  const branchActionsRow = document.getElementById('branchActionsRow');
+  const branchTabs = Array.from(document.querySelectorAll('.branch-tab-btn'));
+
+  const scheduleRowWeek = document.getElementById('scheduleRowWeek');
+  const scheduleRowSat = document.getElementById('scheduleRowSat');
+  const scheduleRowSun = document.getElementById('scheduleRowSun');
+  const brandLogoTrigger = document.getElementById('brandLogoTrigger');
+
+  const domCache = {
+    palette: '',
+    branchId: '',
+    statusText: '',
+    hoursTodayText: '',
+    isOpen: null,
+  };
+
+  /* ========================================================================
+     1. SELECTOR DE AMBIENTE (LINO & NOGAL / ROBLE & ARENA / NOGAL NOIR)
+     ======================================================================== */
+  function setPalette(paletteId) {
+    const config = PALETTES[paletteId] || PALETTES.lino;
+    if (config.id === domCache.palette) return;
+
+    domCache.palette = config.id;
+    state.palette = config.id;
+    document.body.setAttribute('data-palette', config.id);
+
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', config.themeColor);
+    }
+
+    if (ambienceActiveLabel) {
+      ambienceActiveLabel.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width:13px;height:13px;stroke-width:2.2;"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        ${config.label}
+      `;
+    }
+
+    for (let i = 0; i < ambienceTabs.length; i++) {
+      const tab = ambienceTabs[i];
+      const isMatch = tab.getAttribute('data-target') === config.id;
+      tab.classList.toggle('active', isMatch);
+      tab.setAttribute('aria-pressed', String(isMatch));
+    }
+
+    try {
+      localStorage.setItem('barone_palette_pref', config.id);
+    } catch (_) {}
+
+    emitEvent(BARONE_EVENTS.PALETTE_CHANGED, { palette: config.id });
+  }
+
+  /* ========================================================================
+     2. HORARIO EN VIVO (ARGENTINA UTC-3)
+     ======================================================================== */
+  function updateScheduleStatus() {
+    const status = evaluateStoreOpenStatus(new Date());
+    state.isOpenNow = status.isOpen;
+
+    if (liveStatusBeacon && domCache.isOpen !== status.isOpen) {
+      domCache.isOpen = status.isOpen;
+      liveStatusBeacon.style.background = status.isOpen ? '#22C55E' : '#94A3B8';
+      liveStatusBeacon.style.boxShadow = status.isOpen ? '0 0 8px #22C55E' : 'none';
+    }
+
+    if (liveStatusText && status.badgeText !== domCache.statusText) {
+      domCache.statusText = status.badgeText;
+      liveStatusText.textContent = status.badgeText;
+    }
+
+    if (hoursTagToday && status.scheduleTodayText !== domCache.hoursTodayText) {
+      domCache.hoursTodayText = status.scheduleTodayText;
+      hoursTagToday.textContent = status.scheduleTodayText;
+    }
+
+    scheduleRowWeek?.classList.toggle('is-today', status.isWeekday);
+    scheduleRowSat?.classList.toggle('is-today', status.isSaturday);
+    scheduleRowSun?.classList.toggle('is-today', status.isSunday);
+
+    emitEvent(BARONE_EVENTS.STATUS_TICK, { isOpen: status.isOpen });
+  }
+
+  /* ========================================================================
+     3. SHOWROOMS & GOOGLE MAPS EMBEBIDO (LOMAS / ADROGUÉ)
+     ======================================================================== */
+  function renderBranch(branchId) {
+    const branch = BRAND_DATA.branches[branchId] || BRAND_DATA.branches.lomas;
+    if (branch.id === domCache.branchId) return;
+
+    domCache.branchId = branch.id;
+    state.activeBranch = branch.id;
+
+    if (activeBranchSub) {
+      activeBranchSub.textContent = branch.addressFull;
+    }
+
+    if (branchMapFrame && branchMapFrame.getAttribute('src') !== branch.embedUrl) {
+      branchMapFrame.setAttribute('src', branch.embedUrl);
+      branchMapFrame.setAttribute('title', `Ubicación Showroom ${branch.name} en Google Maps`);
+    }
+
+    if (branchActionsRow) {
+      const waMsg = encodeURIComponent(`¡Hola Tienda Barone! Quisiera consultar por la sucursal de ${branch.name}.`);
+      branchActionsRow.innerHTML = `
+        <a href="${branch.mapsUrl}" target="_blank" rel="noopener noreferrer" class="atelier-open-directions">
+          <span>Abrir en Google Maps</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a href="https://wa.me/${BRAND_DATA.contact.whatsappNumber}?text=${waMsg}" target="_blank" rel="noopener noreferrer" class="atelier-open-directions">
+          <span>Consultar ${branch.name}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      `;
+    }
+
+    for (let i = 0; i < branchTabs.length; i++) {
+      const tab = branchTabs[i];
+      const isMatch = tab.getAttribute('data-branch') === branch.id;
+      tab.classList.toggle('active', isMatch);
+      tab.setAttribute('aria-selected', String(isMatch));
+    }
+
+    emitEvent(BARONE_EVENTS.BRANCH_CHANGED, { branchId: branch.id });
+  }
+
+  /* ========================================================================
+     4. FÍSICA MAGNÉTICA CON RESORTE (IDLE-SLEEP EN DESKTOP)
+     ======================================================================== */
+  function initSpringCards() {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    const cards = Array.from(document.querySelectorAll(
+      '.bento-card, .motion-decor-card, .product-decor-card, .card-hero-custom-furniture'
+    ));
+
+    for (let i = 0; i < cards.length; i++) {
+      const card = cards[i];
+      const springX = createSpringState(0.0);
+      const springY = createSpringState(0.0);
+      let targetX = 0.0;
+      let targetY = 0.0;
+      let isHovered = false;
+
+      card.addEventListener('pointermove', (e) => {
+        isHovered = true;
+        const rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        targetX = px * 5.0;
+        targetY = -py * 5.0;
+        director.requestWake();
+      }, { passive: true });
+
+      card.addEventListener('pointerleave', () => {
+        isHovered = false;
+        targetX = 0.0;
+        targetY = 0.0;
+        director.requestWake();
+      }, { passive: true });
+
+      director.register({
+        id: `tilt-card-${i}`,
+        element: card,
+        onTick: (dt) => {
+          const settled =
+            !isHovered &&
+            Math.abs(springX.val) < 0.01 &&
+            Math.abs(springY.val) < 0.01 &&
+            Math.abs(springX.vel) < 0.01 &&
+            Math.abs(springY.vel) < 0.01;
+
+          if (settled) {
+            springX.val = 0;
+            springX.vel = 0;
+            springY.val = 0;
+            springY.vel = 0;
+            if (card.style.transform !== '') card.style.transform = '';
+            return false; // Duerme el motor al alcanzar reposo
+          }
+
+          const curX = stepSpring(springX, targetX, dt, { wn: 14.0, zeta: 0.80 });
+          const curY = stepSpring(springY, targetY, dt, { wn: 14.0, zeta: 0.80 });
+          card.style.transform = `perspective(900px) rotateY(${curX.toFixed(2)}deg) rotateX(${curY.toFixed(2)}deg) translateY(-2px)`;
+          return true;
+        },
+      });
+    }
+  }
+
+  /* ========================================================================
+     5. EVENTOS Y CICLO DE VIDA
+     ======================================================================== */
+  function bindEvents() {
+    for (let i = 0; i < ambienceTabs.length; i++) {
+      ambienceTabs[i].addEventListener('click', (e) => {
+        const target = e.currentTarget.getAttribute('data-target');
+        if (target) {
+          triggerHaptic();
+          setPalette(target);
+          emitEvent(BARONE_EVENTS.UI_CLICK);
+        }
+      });
+    }
+
+    for (let i = 0; i < branchTabs.length; i++) {
+      branchTabs[i].addEventListener('click', (e) => {
+        const branchId = e.currentTarget.getAttribute('data-branch');
+        if (branchId) {
+          triggerHaptic();
+          renderBranch(branchId);
+          emitEvent(BARONE_EVENTS.UI_CLICK);
+        }
+      });
+    }
+
+    const scrollTop = () => {
+      triggerHaptic();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    brandLogoTrigger?.addEventListener('click', scrollTop);
+    brandLogoTrigger?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        scrollTop();
+      }
+    });
+
+    document.getElementById('heroWhatsAppBtn')?.addEventListener('click', triggerHaptic);
+    document.getElementById('floatingWaBtn')?.addEventListener('click', triggerHaptic);
+
+    // Refresco de horario solo cuando la pestaña está visible
+    setInterval(() => {
+      if (!document.hidden) updateScheduleStatus();
+    }, 60000);
+
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) updateScheduleStatus();
+    });
+  }
+
+  let initialPalette = 'lino';
+  try {
+    const saved = localStorage.getItem('barone_palette_pref');
+    if (saved && PALETTES[saved]) initialPalette = saved;
+  } catch (_) {}
+
+  setPalette(initialPalette);
+  renderBranch('lomas');
+  updateScheduleStatus();
+  bindEvents();
+  initSpringCards();
+
+  return {
+    setPalette,
+    renderBranch,
+    updateScheduleStatus,
+  };
+}
+```
+
+---
+
+### 8. `js/main.js`
+
+```javascript
+/**
+ * js/main.js
+ * Tienda Barone · Bootstrap ES Module.
+ */
+
+import { EngineDirector } from './engine/director.js';
+import { initVideoBoomerang } from './engine/video-boomerang.js';
+import { initDomController } from './ui/dom-controller.js';
+
+function bootstrap() {
+  const director = new EngineDirector();
+
+  initVideoBoomerang();
+  initDomController(director);
+
+  let resizeRaf = null;
+  window.addEventListener('resize', () => {
+    if (resizeRaf !== null) return;
+    resizeRaf = requestAnimationFrame(() => {
+      resizeRaf = null;
+      director.triggerResizeAll();
+    });
+  }, { passive: true });
+}
+
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', bootstrap, { once: true });
+} else {
+  bootstrap();
 }
