@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>Tienda Barone · Sillones &amp; Muebles de Diseño | Showrooms</title>
     <meta name="description" content="No vendemos solo muebles, creamos espacios que enamoran. Fabricamos sillones, mesas, mix de sillas y cortinas. Showrooms en Lomas de Zamora y Adrogué. 12 cuotas sin interés.">
-    <meta name="theme-color" content="#FAF7F2" id="metaThemeColor">
+    <meta name="theme-color" content="#FAF7F2">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
@@ -15,9 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/styles.css?v=3">
+    <link rel="stylesheet" href="./css/styles.css?v=4">
 </head>
-<body data-palette="lino">
+<body>
 
     <!-- TRAMA DIAGONAL EN BAJORRELIEVE (ESTILO HERMÈS) -->
     <div class="decor-wallpaper-relief" aria-hidden="true"></div>
@@ -43,23 +43,9 @@
         </aside>
 
         <!-- ==================================================================
-             BLOQUE 1: HERO CENTRADO Y EQUILIBRADO (ENTRA COMPLETO EN PC Y MÓVIL)
+             BLOQUE 1: HERO CENTRADO CON MONUMENTO MONEDA GRANDE
              ================================================================== -->
         <section class="hero-editorial-stage">
-
-            <!-- DOCK SUPERIOR: HORARIOS ÚTILES A LA IZQ + 3 CÍRCULOS DE COLOR A LA DER (SIN NOMBRES DE MODO) -->
-            <nav class="ambience-dock" aria-label="Horarios de Atención y Paleta Visual">
-                <div class="dock-schedule-pill" id="liveStatusPill">
-                    <span class="live-status-beacon" id="liveStatusBeacon" aria-hidden="true"></span>
-                    <span id="liveStatusText">Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15 hs</span>
-                </div>
-
-                <div class="ambience-swatches" role="group" aria-label="Cambiar tono de ambiente">
-                    <button type="button" class="ambience-tab tab-lino active" data-target="lino" aria-label="Paleta clara marfil y nogal" aria-pressed="true"></button>
-                    <button type="button" class="ambience-tab tab-arena" data-target="arena" aria-label="Paleta cálida arena y roble" aria-pressed="false"></button>
-                    <button type="button" class="ambience-tab tab-noir" data-target="noir" aria-label="Paleta oscura nogal y oro" aria-pressed="false"></button>
-                </div>
-            </nav>
 
             <!-- MONUMENTO DE MARCA: LOGO MONEDA OFICIAL (274.2 x 274.2) -->
             <header class="brand-monument">
@@ -120,6 +106,7 @@
                     </p>
                 </div>
 
+                <!-- CHIPS FLOTANTES ANIMADOS -->
                 <div class="studio-pillars-row">
                     <span class="pillar-chip">
                         <svg class="pillar-svg" viewBox="0 0 24 24"><path d="M3 3v18h18M7 17l4-4M10 14l3-3M13 11l4-4M3 7h4M3 11h3M3 15h4M7 21v-4M11 21v-3M15 21v-4"/></svg>
@@ -140,7 +127,7 @@
                 </div>
             </header>
 
-            <!-- BOTÓN PRINCIPAL DE WHATSAPP: CONCISO, INCONFUNDIBLE Y CON REFLEJO LUMINOSO CONTINUO -->
+            <!-- BOTÓN PRINCIPAL DE WHATSAPP -->
             <a href="https://wa.me/5491146731570?text=%C2%A1Hola%20Tienda%20Barone!%20Quisiera%20hacer%20una%20consulta%20por%20sus%20muebles%20de%20dise%C3%B1o%20y%20sillones." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-primary" id="heroWhatsAppBtn">
                 <span class="wa-sheen-beam" aria-hidden="true"></span>
                 <div class="wa-primary-left">
@@ -156,21 +143,26 @@
         </section>
 
         <!-- ==================================================================
-             BLOQUE 2: BENTO GRID DE ACCESOS DIRECTOS
+             BLOQUE 2: BENTO CON WEB + IG EN 2 CUADRADITOS Y ALTO CONTRASTE
              ================================================================== -->
         <section class="bento-actions-grid" aria-label="Canales Oficiales">
-            <a href="http://www.tiendabarone.com.ar/" target="_blank" rel="noopener noreferrer" class="bento-card tienda-highlight">
+            <!-- CUADRO 1: BLANCO LUMINOSO CON ACENTO DORADO -->
+            <a href="http://www.tiendabarone.com.ar/" target="_blank" rel="noopener noreferrer" class="bento-card bento-card-web">
                 <div class="bento-top-row">
-                    <span class="bento-kicker-tag">12 Cuotas Sin Interés · Sitio Oficial</span>
+                    <div class="bento-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
                     <span class="bento-arrow-hint" aria-hidden="true">↗</span>
                 </div>
                 <div>
+                    <span class="bento-kicker-tag">12 Cuotas Sin Interés</span>
                     <div class="bento-title">tiendabarone.com.ar</div>
-                    <div class="bento-caption">Catálogo de sillones, mesas, mix de sillas y cortinas.</div>
+                    <div class="bento-caption">Catálogo online oficial</div>
                 </div>
             </a>
 
-            <a href="https://www.instagram.com/tiendabarone/" target="_blank" rel="noopener noreferrer" class="bento-card">
+            <!-- CUADRO 2: NOGAL PROFUNDO #351703 CON ORO #FAC57A -->
+            <a href="https://www.instagram.com/tiendabarone/" target="_blank" rel="noopener noreferrer" class="bento-card bento-card-ig">
                 <div class="bento-top-row">
                     <div class="bento-icon-box">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -178,11 +170,13 @@
                     <span class="bento-arrow-hint" aria-hidden="true">↗</span>
                 </div>
                 <div>
+                    <span class="bento-kicker-tag">Instagram Oficial</span>
                     <div class="bento-title">@tiendabarone</div>
-                    <div class="bento-caption">52,1 mil seguidores · Entregas y taller.</div>
+                    <div class="bento-caption">52,1 mil seguidores</div>
                 </div>
             </a>
 
+            <!-- CUADRO 3: ARENA CÁLIDA (COMPACTO ABAJO EN MÓVIL / 3ª COL EN PC) -->
             <article class="bento-card bento-advice-card">
                 <div class="bento-top-row">
                     <div class="bento-icon-box">
@@ -195,7 +189,7 @@
         </section>
 
         <!-- ==================================================================
-             BLOQUE 3: GALERÍA LOOKBOOK CINÉTICA (FOTOS CON PROFUNDIDAD 3D Y LIGHTBOX)
+             BLOQUE 3: GALERÍA LOOKBOOK CINÉTICA 3D (MESAS & LIVING)
              ================================================================== -->
         <section class="lookbook-showcase" aria-label="Galería de Mesas y Living">
             <div class="showcase-header">
@@ -292,7 +286,7 @@
         </section>
 
         <!-- ==================================================================
-             BLOQUE 4: SHOWCASE DE VIDEOS BOOMERANG (SCROLL FLUIDO + LIGHTBOX AL TOCAR)
+             BLOQUE 4: SHOWCASE DE VIDEOS BOOMERANG (SILLONES & TAPICERÍA)
              ================================================================== -->
         <section class="lookbook-showcase" aria-label="Sillones y Tapicería en Movimiento">
             <div class="showcase-header">
@@ -393,7 +387,7 @@
         </section>
 
         <!-- ==================================================================
-             BLOQUE 5: SHOWROOMS & MAPA GOOGLE EMBEBIDO (LOMAS & ADROGUÉ)
+             BLOQUE 5: SHOWROOMS & HORARIOS OFICIALES + GOOGLE MAPS
              ================================================================== -->
         <article class="atelier-map-card" aria-label="Showrooms y Horarios Oficiales">
             <div class="atelier-map-header">
@@ -406,7 +400,10 @@
                         <span class="atelier-address-sub" id="activeBranchSub">Hipólito Yrigoyen 9039, Lomas de Zamora, Buenos Aires</span>
                     </div>
                 </div>
-                <span class="hours-tag-today" id="hoursTagToday">Lun a Vie 10:30-13:30 / 14:30-18:30</span>
+                <div class="hours-tag-today" id="hoursTagPill">
+                    <span class="live-status-beacon" id="liveStatusBeacon" aria-hidden="true"></span>
+                    <span id="hoursTagToday">Abrimos Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15</span>
+                </div>
             </div>
 
             <div class="showroom-split-body">
@@ -496,7 +493,7 @@
 
     </main>
 
-    <!-- BOTÓN FLOTANTE DIFERIDO (APARECE SOLO AL BAJAR PASADO EL BOTÓN PRINCIPAL) -->
+    <!-- BOTÓN FLOTANTE DIFERIDO (APARECE SOLO AL PASAR EL BOTÓN PRINCIPAL HACIA ABAJO) -->
     <a href="https://wa.me/5491146731570?text=%C2%A1Hola%20Tienda%20Barone!%20Quisiera%20consultar%20por%20sus%20muebles%20de%20dise%C3%B1o." class="floating-whatsapp-wrap" target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp con Tienda Barone" id="floatingWaBtn">
         <span class="floating-whatsapp-pill-label">WhatsApp</span>
         <div class="floating-whatsapp-btn">
@@ -504,7 +501,7 @@
         </div>
     </a>
 
-    <!-- VISOR STUDIO LIGHTBOX CINEMATOGRÁFICO (PARA FOTOS Y VIDEOS SIN SALIR DE LA WEB) -->
+    <!-- VISOR STUDIO LIGHTBOX CINEMATOGRÁFICO -->
     <div class="studio-lightbox" id="studioLightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
         <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
         <div class="lightbox-stage">
@@ -541,6 +538,6 @@
         </div>
     </div>
 
-    <script type="module" src="./js/main.js?v=3"></script>
+    <script type="module" src="./js/main.js?v=4"></script>
 </body>
 </html>
