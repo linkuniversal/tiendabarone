@@ -5,7 +5,7 @@
 
 import { EngineDirector } from './engine/director.js?v=3';
 import { initVideoBoomerang } from './engine/video-boomerang.js?v=3';
-import { initDomController } from './ui/dom-controller.js?v=3';
+import { initDomController } from './ui/dom-controller.js?v=4';
 
 function bootstrap() {
   const director = new EngineDirector();
