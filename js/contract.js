@@ -5,7 +5,6 @@
  */
 
 export const BARONE_EVENTS = Object.freeze({
-  PALETTE_CHANGED: 'barone:palette-changed',
   BRANCH_CHANGED: 'barone:branch-changed',
   STATUS_TICK: 'barone:status-tick',
   UI_CLICK: 'barone:ui-click',
@@ -17,14 +16,7 @@ export function emitEvent(eventName, detail = {}) {
   bus.dispatchEvent(new CustomEvent(eventName, { detail }));
 }
 
-export const PALETTES = Object.freeze({
-  lino: Object.freeze({ id: 'lino', themeColor: '#FAF7F2' }),
-  arena: Object.freeze({ id: 'arena', themeColor: '#F6F1E8' }),
-  noir: Object.freeze({ id: 'noir', themeColor: '#351703' }),
-});
-
 export const state = {
-  palette: 'lino',
   activeBranch: 'lomas',
   isOpenNow: false,
 };
@@ -150,46 +142,42 @@ export function evaluateStoreOpenStatus(dateInput = new Date()) {
   const isWeekday = !isSunday && !isSaturday;
 
   let isOpen = false;
-  let dockScheduleText = '';
-  let showroomBadgeText = '';
+  let showroomScheduleText = '';
 
   if (isWeekday) {
-    showroomBadgeText = 'Lun a Vie 10:30–13:30 / 14:30–18:30';
     if (timeVal >= 10.5 && timeVal < 13.5) {
       isOpen = true;
-      dockScheduleText = 'Abierto hoy hasta 13:30 hs · Luego 14:30 a 18:30 hs';
+      showroomScheduleText = 'Abierto hoy hasta 13:30 hs · Luego 14:30 a 18:30 hs';
     } else if (timeVal >= 13.5 && timeVal < 14.5) {
       isOpen = false;
-      dockScheduleText = 'Reabrimos hoy de 14:30 a 18:30 hs';
+      showroomScheduleText = 'Reabrimos hoy de 14:30 a 18:30 hs';
     } else if (timeVal >= 14.5 && timeVal < 18.5) {
       isOpen = true;
-      dockScheduleText = 'Abierto hoy hasta las 18:30 hs';
+      showroomScheduleText = 'Abierto hoy hasta las 18:30 hs';
     } else if (timeVal < 10.5) {
       isOpen = false;
-      dockScheduleText = 'Hoy abrimos 10:30–13:30 y 14:30–18:30 hs';
+      showroomScheduleText = 'Hoy abrimos 10:30–13:30 y 14:30–18:30 hs';
     } else if (isFriday) {
       isOpen = false;
-      dockScheduleText = 'Sábados abrimos 10:00 a 15:00 hs · Lun a Vie 10:30–18:30';
+      showroomScheduleText = 'Mañana Sáb abrimos 10:00 a 15:00 hs · Lun–Vie 10:30–18:30';
     } else {
       isOpen = false;
-      dockScheduleText = 'Abrimos Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15';
+      showroomScheduleText = 'Abrimos Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15';
     }
   } else if (isSaturday) {
-    showroomBadgeText = 'Sábados: 10:00 a 15:00 hs';
     if (timeVal < 10.0) {
       isOpen = false;
-      dockScheduleText = 'Hoy Sábado abrimos de 10:00 a 15:00 hs';
+      showroomScheduleText = 'Hoy Sábado abrimos de 10:00 a 15:00 hs';
     } else if (timeVal < 15.0) {
       isOpen = true;
-      dockScheduleText = 'Abierto hoy Sábado hasta las 15:00 hs';
+      showroomScheduleText = 'Abierto hoy Sábado hasta las 15:00 hs';
     } else {
       isOpen = false;
-      dockScheduleText = 'Abrimos Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15';
+      showroomScheduleText = 'Abrimos Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15';
     }
   } else {
-    showroomBadgeText = 'Lun a Vie 10:30–18:30 · Sáb 10–15';
     isOpen = false;
-    dockScheduleText = 'Abrimos Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15';
+    showroomScheduleText = 'Abrimos Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15';
   }
 
   return {
@@ -197,7 +185,6 @@ export function evaluateStoreOpenStatus(dateInput = new Date()) {
     isWeekday,
     isSaturday,
     isSunday,
-    dockScheduleText,
-    showroomBadgeText,
+    showroomScheduleText,
   };
 }
