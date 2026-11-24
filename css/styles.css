@@ -1,17 +1,18 @@
 /* ==========================================================================
-   1. SISTEMA CROMÁTICO EDITORIAL (DABIEN'S & HUMMUS + ADN TIENDA BARONE)
+   1. SISTEMA CROMÁTICO EDITORIAL (SOLO MODO CLARO · DABIEN'S + TIENDA BARONE)
    ========================================================================== */
 :root {
     --bg-body: #FAF7F2;
     --bg-surface: #FFFFFF;
     --bg-surface-elevated: #F3ECE2;
+    --bg-sand-warm: #EFE5D7;
     --color-wood: #351703;
     --color-wood-dark: #220F02;
     --color-wood-soft: #6B472E;
     --color-wood-glow: rgba(53, 23, 3, 0.16);
     --color-gold: #FAC57A;
     --color-gold-alt: #F8C577;
-    --color-gold-glow: rgba(250, 197, 122, 0.34);
+    --color-gold-glow: rgba(250, 197, 122, 0.38);
 
     --color-text-title: #22160F;
     --color-text-body: #4A3B31;
@@ -28,7 +29,6 @@
     --pattern-line: rgba(92, 69, 53, 0.20);
     --pattern-highlight: rgba(255, 255, 255, 0.95);
     --grain-opacity: 0.085;
-    --grain-blend: multiply;
     --ambient-glow-color: rgba(250, 197, 122, 0.24);
 
     --shadow-card: 0 10px 28px -6px rgba(53, 23, 3, 0.06), 0 2px 8px rgba(0, 0, 0, 0.02);
@@ -40,58 +40,8 @@
     --spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* PALETA 2: ARENA & ROBLE CÁLIDO */
-body[data-palette="arena"] {
-    --bg-body: #F6F1E8;
-    --bg-surface: #FFFFFF;
-    --bg-surface-elevated: #ECE2D2;
-    --color-wood: #694426;
-    --color-wood-dark: #432914;
-    --color-wood-soft: #966B45;
-    --color-wood-glow: rgba(105, 68, 38, 0.18);
-    --color-text-title: #1F1914;
-    --color-text-body: #473B30;
-    --color-text-muted: #7E6E5F;
-    --color-border: #DFD2BF;
-    --color-border-hover: #7A5333;
-    --badge-bg: #EFE4D4;
-    --badge-text: #59381D;
-    --marquee-bg: #4A301A;
-    --marquee-text: #FAC57A;
-    --pattern-line: rgba(122, 83, 51, 0.21);
-    --pattern-highlight: rgba(255, 255, 255, 0.95);
-    --grain-opacity: 0.088;
-}
-
-/* PALETA 3: NOGAL NOIR */
-body[data-palette="noir"] {
-    --bg-body: #351703;
-    --bg-surface: #281102;
-    --bg-surface-elevated: #421E07;
-    --color-wood: #FAC57A;
-    --color-wood-dark: #220F02;
-    --color-wood-soft: #FAC57A;
-    --color-wood-glow: rgba(250, 197, 122, 0.22);
-    --color-text-title: #FFFFFF;
-    --color-text-body: #E7D6C8;
-    --color-text-muted: #C7B09E;
-    --color-border: rgba(250, 197, 122, 0.24);
-    --color-border-hover: #FAC57A;
-    --badge-bg: #421E07;
-    --badge-text: #FAC57A;
-    --marquee-bg: #FAC57A;
-    --marquee-text: #351703;
-    --pattern-line: rgba(250, 197, 122, 0.085);
-    --pattern-highlight: rgba(0, 0, 0, 0.30);
-    --grain-opacity: 0.045;
-    --grain-blend: soft-light;
-    --ambient-glow-color: rgba(250, 197, 122, 0.14);
-    --shadow-card: 0 12px 30px -8px rgba(0, 0, 0, 0.45);
-    --shadow-hover: 0 18px 42px -10px rgba(250, 197, 122, 0.18);
-}
-
 /* ==========================================================================
-   2. RESET & BASE FLUÍDA (PERFECTA DESDE 280px HASTA 4K)
+   2. RESET & BASE FLUIDA (PERFECTA DESDE 280px HASTA 4K)
    ========================================================================== */
 *, *::before, *::after {
     margin: 0;
@@ -121,7 +71,6 @@ body {
     overflow-x: clip;
     position: relative;
     letter-spacing: -0.01em;
-    transition: background-color 0.35s ease, color 0.35s ease;
     touch-action: manipulation;
 }
 
@@ -158,7 +107,7 @@ button {
     pointer-events: none;
     z-index: 2;
     opacity: var(--grain-opacity);
-    mix-blend-mode: var(--grain-blend);
+    mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cottonGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.15 0 0 0 0 0.12 0 0 0 0 0.09 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cottonGrain)'/%3E%3C/svg%3E");
     background-repeat: repeat;
 }
@@ -233,7 +182,7 @@ button {
 }
 
 /* ==========================================================================
-   5. HERO STAGE CENTRADO (SIN COLUMNA CORTADA EN PC)
+   5. HERO STAGE CENTRADO CON MONUMENTO MONEDA PROTAGONISTA
    ========================================================================== */
 .hero-editorial-stage {
     width: 100%;
@@ -242,95 +191,16 @@ button {
     flex-direction: column;
     align-items: center;
     gap: 14px;
+    padding-top: 2px;
 }
 
-/* DOCK: HORARIOS ÚTILES A LA IZQUIERDA + 3 CÍRCULOS DE COLOR A LA DERECHA */
-.ambience-dock {
-    width: 100%;
-    background: var(--bg-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 999px;
-    min-height: 40px;
-    padding: 6px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    box-shadow: var(--shadow-card);
-}
-
-.dock-schedule-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: clamp(0.64rem, 1.8vw, 0.74rem);
-    font-weight: 700;
-    color: var(--color-text-title);
-    line-height: 1.25;
-    min-width: 0;
-}
-
-.live-status-beacon {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    background: #22C55E;
-    box-shadow: 0 0 8px #22C55E;
-    animation: beaconPulse 2.2s infinite;
-}
-
-@keyframes beaconPulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.45; transform: scale(0.8); }
-}
-
-.ambience-swatches {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-}
-
-.ambience-tab {
-    width: 21px;
-    height: 21px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(0, 0, 0, 0.20);
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    transition: transform 0.25s var(--spring), border-color 0.25s ease;
-}
-
-.ambience-tab::after {
-    content: '';
-    position: absolute;
-    inset: -7px;
-}
-
-.ambience-tab:hover {
-    transform: scale(1.12);
-}
-
-.ambience-tab.active {
-    transform: scale(1.22);
-    border-color: var(--color-text-title);
-    box-shadow: 0 0 0 2px var(--bg-surface), 0 2px 6px rgba(0, 0, 0, 0.24);
-}
-
-.tab-lino  { background: #FAF7F2; border-color: #351703; }
-.tab-arena { background: #B38656; }
-.tab-noir  { background: #351703; border-color: rgba(250, 197, 122, 0.7); }
-
-/* MONUMENTO DE MARCA: MONEDA VECTORIAL */
 .brand-monument {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 11px;
+    gap: 12px;
 }
 
 .coin-monument-stage {
@@ -341,13 +211,14 @@ button {
     outline: none;
 }
 
+/* LOGO MONEDA CON MAYOR JERARQUÍA Y PESO VISUAL */
 .coin-medallion-frame {
-    width: clamp(128px, 34vw, 166px);
-    height: clamp(128px, 34vw, 166px);
+    width: clamp(178px, 46vw, 224px);
+    height: clamp(178px, 46vw, 224px);
     border-radius: 50%;
-    padding: 4px;
-    background: linear-gradient(145deg, rgba(250, 197, 122, 0.58) 0%, rgba(53, 23, 3, 0.22) 100%);
-    box-shadow: 0 14px 32px -6px rgba(53, 23, 3, 0.26), 0 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 5px;
+    background: linear-gradient(145deg, #FAC57A 0%, #8D6A4E 48%, #FAC57A 100%);
+    box-shadow: 0 18px 40px -8px rgba(53, 23, 3, 0.34), 0 6px 14px rgba(0, 0, 0, 0.10);
     transition: transform 0.35s var(--spring), box-shadow 0.35s ease;
     display: flex;
     align-items: center;
@@ -356,8 +227,8 @@ button {
 
 .coin-monument-stage:hover .coin-medallion-frame,
 .coin-monument-stage:focus-visible .coin-medallion-frame {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 20px 42px -8px rgba(53, 23, 3, 0.34), 0 0 22px var(--color-gold-glow);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 24px 48px -8px rgba(53, 23, 3, 0.42), 0 0 26px var(--color-gold-glow);
 }
 
 .barone-coin-svg {
@@ -373,23 +244,19 @@ button {
 .barone-coin-svg .cls-4 { fill: #FFFFFF; }
 
 .coin-glass-reflection {
-    width: 118px;
-    height: 12px;
-    margin-top: 5px;
+    width: clamp(134px, 34vw, 170px);
+    height: 14px;
+    margin-top: 7px;
     border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(53, 23, 3, 0.22) 0%, transparent 72%);
-    filter: blur(2px);
+    background: radial-gradient(ellipse at center, rgba(53, 23, 3, 0.25) 0%, transparent 72%);
+    filter: blur(2.5px);
     pointer-events: none;
 }
 
-body[data-palette="noir"] .coin-glass-reflection {
-    background: radial-gradient(ellipse at center, rgba(250, 197, 122, 0.22) 0%, transparent 72%);
-}
-
 .brand-sub-tag {
-    font-size: clamp(0.66rem, 1.8vw, 0.74rem);
+    font-size: clamp(0.68rem, 1.8vw, 0.76rem);
     font-weight: 800;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--color-wood-soft);
 }
@@ -405,7 +272,7 @@ body[data-palette="noir"] .coin-glass-reflection {
 
 .manifesto-quote-text {
     font-family: var(--font-serif);
-    font-size: clamp(1.12rem, 3.2vw, 1.32rem);
+    font-size: clamp(1.14rem, 3.2vw, 1.34rem);
     font-style: italic;
     font-weight: 600;
     color: var(--color-text-title);
@@ -420,12 +287,12 @@ body[data-palette="noir"] .coin-glass-reflection {
     font-weight: 500;
 }
 
-/* PILARES VECTORIALES */
+/* PILARES VECTORIALES CON LEVITACIÓN FLOTANTE ESCALONADA */
 .studio-pillars-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 7px;
     flex-wrap: wrap;
 }
 
@@ -434,7 +301,7 @@ body[data-palette="noir"] .coin-glass-reflection {
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    padding: 5px 10px;
+    padding: 6px 11px;
     border-radius: 999px;
     background: var(--badge-bg);
     color: var(--badge-text);
@@ -442,6 +309,29 @@ body[data-palette="noir"] .coin-glass-reflection {
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    animation: subtleFloating 4.4s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+.pillar-chip:nth-child(1) { animation-delay: 0s; }
+.pillar-chip:nth-child(2) { animation-delay: 0.7s; }
+.pillar-chip:nth-child(3) { animation-delay: 1.4s; }
+.pillar-chip:nth-child(4) { animation-delay: 2.1s; }
+
+@keyframes subtleFloating {
+    0% {
+        transform: translateY(0px);
+        box-shadow: 0 2px 5px rgba(53, 23, 3, 0.03);
+    }
+    50% {
+        transform: translateY(-3.5px);
+        border-color: var(--color-border-hover);
+        box-shadow: 0 6px 12px rgba(53, 23, 3, 0.09);
+    }
+    100% {
+        transform: translateY(0px);
+        box-shadow: 0 2px 5px rgba(53, 23, 3, 0.03);
+    }
 }
 
 .pillar-svg {
@@ -454,7 +344,7 @@ body[data-palette="noir"] .coin-glass-reflection {
 }
 
 /* ==========================================================================
-   6. BOTÓN PRINCIPAL DE WHATSAPP (CORTO, INCONFUNDIBLE Y CON REFLEJO LUMINOSO VIVO)
+   6. BOTÓN PRINCIPAL DE WHATSAPP (CORTO, INCONFUNDIBLE Y REFLEJO LUMINOSO)
    ========================================================================== */
 .btn-whatsapp-primary {
     width: 100%;
@@ -475,11 +365,6 @@ body[data-palette="noir"] .coin-glass-reflection {
     cursor: pointer;
 }
 
-body[data-palette="arena"] .btn-whatsapp-primary {
-    background: linear-gradient(135deg, #694426 0%, #432914 100%);
-}
-
-/* REFLEJO LUMINOSO CORRIENDO DE IZQUIERDA A DERECHA */
 .wa-sheen-beam {
     position: absolute;
     top: -10%;
@@ -580,26 +465,23 @@ body[data-palette="arena"] .btn-whatsapp-primary {
 }
 
 /* ==========================================================================
-   7. BENTO GRID DE ACCESOS DIRECTOS
+   7. BENTO GRID (WEB + IG EN 2 CUADRADITOS EN LA MISMA FILA + 3 MATICES)
    ========================================================================== */
 .bento-actions-grid {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 10px;
 }
 
 .bento-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--color-border);
     border-radius: 18px;
-    padding: 16px 18px;
+    padding: 14px 14px;
     text-decoration: none;
-    color: var(--color-text-title);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 124px;
+    min-height: 132px;
     min-width: 0;
     box-shadow: var(--shadow-card);
     transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s var(--spring);
@@ -607,42 +489,122 @@ body[data-palette="arena"] .btn-whatsapp-primary {
 }
 
 .bento-card:hover {
-    border-color: var(--color-border-hover);
     box-shadow: var(--shadow-hover);
 }
 
-.bento-card.tienda-highlight {
-    grid-column: span 2;
-    border-left: 4px solid var(--color-wood);
+/* MATIZ 1: WEB OFICIAL — BLANCO LUMINOSO CON ACENTO DORADO */
+.bento-card-web {
+    background: #FFFFFF;
+    color: var(--color-text-title);
+    border: 1px solid var(--color-border);
+    border-top: 3.5px solid var(--color-gold);
 }
 
-body[data-palette="noir"] .bento-card.tienda-highlight {
-    border-left: 4px solid var(--color-gold);
+.bento-card-web:hover {
+    border-color: var(--color-border-hover);
+    border-top-color: var(--color-wood);
+}
+
+.bento-card-web .bento-icon-box {
+    background: var(--bg-surface-elevated);
+    color: var(--color-wood);
+}
+
+.bento-card-web:hover .bento-icon-box {
+    background: var(--color-wood);
+    color: #FFFFFF;
+}
+
+/* MATIZ 2: INSTAGRAM — NOGAL PROFUNDO CON ORO */
+.bento-card-ig {
+    background: linear-gradient(145deg, #3D1B05 0%, #240F02 100%);
+    color: #FFFFFF;
+    border: 1.5px solid rgba(250, 197, 122, 0.36);
+}
+
+.bento-card-ig:hover {
+    border-color: var(--color-gold);
+}
+
+.bento-card-ig .bento-icon-box {
+    background: rgba(250, 197, 122, 0.14);
+    color: var(--color-gold);
+    border: 1px solid rgba(250, 197, 122, 0.30);
+}
+
+.bento-card-ig:hover .bento-icon-box {
+    background: var(--color-gold);
+    color: #351703;
+}
+
+.bento-card-ig .bento-kicker-tag {
+    color: var(--color-gold);
+}
+
+.bento-card-ig .bento-title {
+    color: #FFFFFF;
+}
+
+.bento-card-ig .bento-caption {
+    color: #E5D4C5;
+}
+
+.bento-card-ig .bento-arrow-hint {
+    color: var(--color-gold);
+    opacity: 0.85;
+}
+
+/* MATIZ 3: CONSEJO BARONE — ARENA CÁLIDA COMPACTA */
+.bento-advice-card {
+    grid-column: span 2;
+    min-height: auto;
+    padding: 13px 16px;
+    background: var(--bg-sand-warm);
+    color: var(--color-text-title);
+    border: 1px solid #DDD0BE;
+    border-left: 4px solid var(--color-wood-soft);
+    gap: 6px;
+}
+
+.bento-advice-card .bento-top-row {
+    margin-bottom: 2px;
+}
+
+.bento-advice-card .bento-icon-box {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: var(--color-wood);
+}
+
+.bento-advice-card .bento-icon-box svg {
+    width: 14px;
+    height: 14px;
 }
 
 .bento-kicker-tag {
     display: block;
-    font-size: 0.65rem;
+    font-size: 0.60rem;
     font-weight: 800;
-    letter-spacing: 0.11em;
+    letter-spacing: 0.10em;
     text-transform: uppercase;
     color: var(--color-wood-soft);
+    margin-bottom: 2px;
 }
 
 .bento-top-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 8px;
+    gap: 6px;
     margin-bottom: 10px;
 }
 
 .bento-icon-box {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
     border-radius: 10px;
-    background: var(--bg-surface-elevated);
-    color: var(--color-wood);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -650,65 +612,51 @@ body[data-palette="noir"] .bento-card.tienda-highlight {
     transition: all 0.22s ease;
 }
 
-.bento-card:hover .bento-icon-box {
-    background: var(--color-wood);
-    color: #FFFFFF;
-}
-
-body[data-palette="noir"] .bento-card:hover .bento-icon-box {
-    color: #351703;
-}
-
 .bento-icon-box svg {
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
     stroke-width: 2;
 }
 
 .bento-arrow-hint {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--color-text-muted);
-    opacity: 0.6;
+    opacity: 0.65;
     transition: transform 0.22s ease, opacity 0.22s ease, color 0.22s ease;
 }
 
 .bento-card:hover .bento-arrow-hint {
     opacity: 1;
     transform: translate(2px, -2px);
-    color: var(--color-wood);
 }
 
 .bento-title {
-    font-size: 0.98rem;
+    font-size: clamp(0.84rem, 2.5vw, 0.98rem);
     font-weight: 800;
-    line-height: 1.25;
+    line-height: 1.2;
     color: var(--color-text-title);
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     word-break: break-word;
 }
 
 .bento-caption {
-    font-size: 0.76rem;
+    font-size: clamp(0.68rem, 2vw, 0.75rem);
     color: var(--color-text-muted);
-    line-height: 1.4;
+    line-height: 1.35;
     font-weight: 500;
-}
-
-.bento-advice-card {
-    background: var(--bg-surface-elevated);
 }
 
 .advice-serif-quote {
     font-family: var(--font-serif);
-    font-size: 1.06rem;
+    font-size: clamp(1.00rem, 2.6vw, 1.12rem);
     font-style: italic;
     font-weight: 600;
     color: var(--color-text-title);
-    line-height: 1.32;
+    line-height: 1.3;
 }
 
 /* ==========================================================================
-   8. GALERÍA LOOKBOOK CINÉTICA 3D & CARRUSEL DE VIDEOS (SCROLLABLE EN PC Y MÓVIL)
+   8. GALERÍA LOOKBOOK CINÉTICA 3D & CARRUSEL DE VIDEOS
    ========================================================================== */
 .lookbook-showcase {
     width: 100%;
@@ -784,17 +732,12 @@ body[data-palette="noir"] .bento-card:hover .bento-icon-box {
     transform: scale(1.06);
 }
 
-body[data-palette="noir"] .carousel-nav-btn:hover {
-    color: #351703;
-}
-
 .carousel-nav-btn svg {
     width: 15px;
     height: 15px;
     stroke-width: 2.3;
 }
 
-/* TRACK HORIZONTAL CINÉTICO CON SCROLL-SNAP & ARRASTRE EN PC/MÓVIL */
 .kinetic-track,
 .motion-track {
     display: flex;
@@ -1010,7 +953,7 @@ body[data-palette="noir"] .carousel-nav-btn:hover {
 }
 
 /* ==========================================================================
-   9. SHOWROOMS & GOOGLE MAPS INTERACTIVO
+   9. SHOWROOMS & GOOGLE MAPS INTERACTIVO + HORARIO ÚTIL EN VIVO
    ========================================================================== */
 .atelier-map-card {
     width: 100%;
@@ -1078,14 +1021,32 @@ body[data-palette="noir"] .carousel-nav-btn:hover {
 }
 
 .hours-tag-today {
-    font-family: var(--font-mono);
-    font-size: 0.64rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.68rem;
     font-weight: 700;
     color: var(--badge-text);
     background: var(--badge-bg);
     border: 1px solid var(--color-border);
-    padding: 5px 11px;
+    padding: 6px 12px;
     border-radius: 999px;
+    line-height: 1.2;
+}
+
+.live-status-beacon {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: #22C55E;
+    box-shadow: 0 0 8px #22C55E;
+    animation: beaconPulse 2.2s infinite;
+}
+
+@keyframes beaconPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.8); }
 }
 
 .showroom-split-body {
@@ -1125,10 +1086,6 @@ body[data-palette="noir"] .carousel-nav-btn:hover {
     color: #FFFFFF;
     border-color: var(--color-wood);
     box-shadow: 0 4px 12px var(--color-wood-glow);
-}
-
-body[data-palette="noir"] .branch-tab-btn.active {
-    color: #351703;
 }
 
 .atelier-map-frame {
@@ -1250,10 +1207,6 @@ body[data-palette="noir"] .branch-tab-btn.active {
     border-color: var(--color-wood);
 }
 
-body[data-palette="noir"] .social-pill-btn:hover {
-    color: #351703;
-}
-
 .social-pill-btn svg {
     width: 18px;
     height: 18px;
@@ -1319,7 +1272,7 @@ body[data-palette="noir"] .social-pill-btn:hover {
     letter-spacing: 0.04em;
 }
 
-/* BOTÓN FLOTANTE QUE APARECE DESPUÉS DE SCROLLEAR EL BOTÓN PRINCIPAL */
+/* BOTÓN FLOTANTE QUE APARECE ÚNICAMENTE TRAS SCROLLEAR PASANDO EL BOTÓN PRINCIPAL */
 .floating-whatsapp-wrap {
     position: fixed;
     bottom: calc(18px + env(safe-area-inset-bottom));
@@ -1590,11 +1543,19 @@ body[data-palette="noir"] .social-pill-btn:hover {
    ========================================================================== */
 @media (min-width: 840px) {
     .bento-actions-grid {
-        grid-template-columns: 1.25fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1.2fr;
+        gap: 14px;
     }
 
-    .bento-card.tienda-highlight {
+    .bento-card {
+        padding: 18px 20px;
+        min-height: 144px;
+    }
+
+    .bento-advice-card {
         grid-column: span 1;
+        padding: 18px 20px;
+        min-height: 144px;
     }
 
     .kinetic-photo-card {
@@ -1624,19 +1585,14 @@ body[data-palette="noir"] .social-pill-btn:hover {
 
 /* PANTALLAS ANGOSTAS / IN-APP WEBVIEW INSTAGRAM & WHATSAPP (< 420px) */
 @media (max-width: 420px) {
-    .ambience-dock {
-        border-radius: 16px;
-        padding: 8px 12px;
-        flex-wrap: wrap;
-        justify-content: space-between;
+    .bento-card {
+        padding: 13px 12px;
+        min-height: 122px;
     }
 
-    .bento-actions-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .bento-card.tienda-highlight {
-        grid-column: span 1;
+    .bento-advice-card {
+        min-height: auto;
+        padding: 12px 14px;
     }
 
     .branch-actions-row {
@@ -1659,6 +1615,14 @@ body[data-palette="noir"] .social-pill-btn:hover {
 }
 
 @media (max-width: 340px) {
+    .bento-card {
+        padding: 11px 10px;
+    }
+
+    .bento-title {
+        font-size: 0.78rem;
+    }
+
     .kinetic-photo-card {
         flex: 0 0 82vw;
     }
@@ -1675,6 +1639,7 @@ body[data-palette="noir"] .social-pill-btn:hover {
 @media (prefers-reduced-motion: reduce) {
     .marquee-track,
     .wa-sheen-beam,
+    .pillar-chip,
     .live-status-beacon {
         animation: none;
     }
