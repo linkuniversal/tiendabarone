@@ -1,11 +1,9 @@
 /**
  * js/engine/director.js
- * Bucle maestro de animación y monitoreo adaptativo (core.js de Pelican Campus Quest).
- * Centraliza requestAnimationFrame con cálculo exacto de deltaTime.
- * Pausa tareas de forma automática cuando no son visibles en pantalla.
+ * Bucle maestro bajo demanda (Wake-on-Interaction / Idle-Sleep).
  */
 
-import { clamp } from './math.js';
+import { clamp } from './math.js?v=3';
 
 export class EngineDirector {
   constructor() {
@@ -22,7 +20,7 @@ export class EngineDirector {
       typeof IntersectionObserver !== 'undefined'
         ? new IntersectionObserver(
             (entries) => {
-              let anyBecameVisible = false;
+              let shouldWake = false;
               for (let i = 0; i < entries.length; i++) {
                 const entry = entries[i];
                 for (let j = 0; j < this.tasks.length; j++) {
@@ -31,14 +29,12 @@ export class EngineDirector {
                     const wasVis = task.visible;
                     task.visible = entry.isIntersecting;
                     if (!wasVis && task.visible) {
-                      anyBecameVisible = true;
+                      shouldWake = true;
                     }
                   }
                 }
               }
-              if (anyBecameVisible && this.rafId === null && !this.reducedMotion) {
-                this.start();
-              }
+              if (shouldWake) this.requestWake();
             },
             { rootMargin: '80px 0px' }
           )
@@ -49,24 +45,17 @@ export class EngineDirector {
         if (document.hidden) {
           this.stop();
         } else {
-          this.lastTimeMs = 0;
-          this.start();
+          this.requestWake();
         }
       });
     }
   }
 
-  /**
-   * Registra un ciclo o módulo al director.
-   * @param {object} config { id, element, minIntervalMs, onTick, onResize }
-   */
   register(config) {
     const task = {
       id: config.id || `task_${this.tasks.length}`,
       element: config.element || null,
-      minIntervalMs: Number(config.minIntervalMs) || 0,
-      lastDrawMs: -9999,
-      visible: config.element ? true : true,
+      visible: true,
       onTick: typeof config.onTick === 'function' ? config.onTick : null,
       onResize: typeof config.onResize === 'function' ? config.onResize : null,
     };
@@ -81,15 +70,13 @@ export class EngineDirector {
       task.onResize();
     }
 
-    if (this.reducedMotion && task.onTick) {
-      task.onTick(0.016, 0.0);
-    }
-
     return task;
   }
 
-  start() {
-    if (this.reducedMotion || this.rafId !== null) return;
+  requestWake() {
+    if (this.reducedMotion || this.rafId !== null || (typeof document !== 'undefined' && document.hidden)) {
+      return;
+    }
     this.lastTimeMs = 0;
 
     const loop = (nowMs) => {
@@ -104,27 +91,19 @@ export class EngineDirector {
       const rawDeltaMs = nowMs - this.lastTimeMs;
       this.lastTimeMs = nowMs;
 
-      // dt protegido: entre 1ms y 50ms para evitar saltos en cambios de pestaña
       const dt = clamp(rawDeltaMs * 0.001, 0.001, 0.05);
       const timeSec = nowMs * 0.001;
 
-      let anyVisible = false;
+      let hasActiveWork = false;
       for (let i = 0; i < this.tasks.length; i++) {
         const task = this.tasks[i];
-        if (!task.visible) continue;
-        anyVisible = true;
-
-        if (task.minIntervalMs > 0 && nowMs - task.lastDrawMs < task.minIntervalMs) {
-          continue;
-        }
-        task.lastDrawMs = nowMs;
-
-        if (task.onTick) {
-          task.onTick(dt, timeSec);
+        if (!task.visible || !task.onTick) continue;
+        if (task.onTick(dt, timeSec) === true) {
+          hasActiveWork = true;
         }
       }
 
-      if (anyVisible) {
+      if (hasActiveWork) {
         this.rafId = requestAnimationFrame(loop);
       } else {
         this.rafId = null;
