@@ -1,12 +1,11 @@
 /**
  * js/contract.js
  * Tienda Barone · Única fuente de verdad.
- * Textos 100% reales extraídos de canales oficiales y capturas.
- * LEY: Cero texto inventado.
+ * 100% datos reales oficiales.
  */
 
 export const BARONE_EVENTS = Object.freeze({
-  THEME_CHANGED: 'barone:theme-changed',
+  PALETTE_CHANGED: 'barone:palette-changed',
   BRANCH_CHANGED: 'barone:branch-changed',
   STATUS_TICK: 'barone:status-tick',
   UI_CLICK: 'barone:ui-click',
@@ -18,27 +17,24 @@ export function emitEvent(eventName, detail = {}) {
   bus.dispatchEvent(new CustomEvent(eventName, { detail }));
 }
 
+export const PALETTES = Object.freeze({
+  lino: Object.freeze({ id: 'lino', themeColor: '#FAF7F2' }),
+  arena: Object.freeze({ id: 'arena', themeColor: '#F6F1E8' }),
+  noir: Object.freeze({ id: 'noir', themeColor: '#351703' }),
+});
+
 export const state = {
-  theme: 'walnut', // 'walnut' (#351703) | 'chalk' (#FAF7F2)
-  activeBranch: 'lomas', // 'lomas' | 'adrogue'
+  palette: 'lino',
+  activeBranch: 'lomas',
   isOpenNow: false,
 };
 
 export const BRAND_DATA = Object.freeze({
   name: 'Tienda Barone',
   subline: 'Sillones · Muebles de Diseño',
-  tagline: 'Creamos espacios, creamos hogar 🏠',
-  hashtag: '#tiendabarone Sillones',
-  perk: '12 cuotas sin interés',
-  quotes: Object.freeze({
-    hero: 'No vendemos solo muebles, creamos espacios que enamoran.',
-    manifesto: 'El diseño transforma ambientes. Los detalles los hacen únicos. Tu casa merece muebles que estén a la altura de tus sueños!!',
-    advice: 'El error es elegir el color de la pared sin mirar el suelo y los muebles',
-  }),
   contact: Object.freeze({
     phoneDisplay: '11 4673-1570',
     whatsappNumber: '5491146731570',
-    whatsappMessage: '¡Hola Tienda Barone! 🛋️ Quisiera hacer una consulta por sus muebles de diseño y sillones.',
     instagramHandle: '@tiendabarone',
     instagramUrl: 'https://www.instagram.com/tiendabarone/',
     websiteUrl: 'http://www.tiendabarone.com.ar/',
@@ -47,76 +43,161 @@ export const BRAND_DATA = Object.freeze({
     lomas: Object.freeze({
       id: 'lomas',
       name: 'Lomas de Zamora',
-      addressShort: 'Yrigoyen 9039',
+      shortLabel: 'Lomas',
       addressFull: 'Hipólito Yrigoyen 9039, Lomas de Zamora, Buenos Aires',
       mapsUrl: 'https://maps.google.com/?q=Hipolito+Yrigoyen+9039,+Lomas+de+Zamora,+Buenos+Aires',
+      embedUrl: 'https://maps.google.com/maps?q=Hipolito+Yrigoyen+9039,+Lomas+de+Zamora,+Provincia+de+Buenos+Aires,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed',
     }),
     adrogue: Object.freeze({
       id: 'adrogue',
       name: 'Adrogué',
-      addressShort: 'Plaza Esteban Adrogué 48',
+      shortLabel: 'Adrogué',
       addressFull: 'Plaza Esteban Adrogué 48, Adrogué, Buenos Aires',
       mapsUrl: 'https://maps.google.com/?q=Plaza+Esteban+Adrogue+48,+Adrogue,+Buenos+Aires',
+      embedUrl: 'https://maps.google.com/maps?q=Plaza+Esteban+Adrogue+48,+Adrogue,+Provincia+de+Buenos+Aires,+Argentina&t=&z=16&ie=UTF8&iwloc=&output=embed',
     }),
   }),
-  schedule: Object.freeze({
-    weekdaysText: '10:30 a 13:30 hs / 14:30 a 18:30 hs',
-    saturdayText: '10:00 a 15:00 hs',
-    sundayText: 'Cerrado',
-  }),
-  assets: Object.freeze({
-    videos: ['sillon.mp4', 'silla.mp4', 'silla2.mp4'],
-    images: [
-      'sillon.webp',
-      'sillon2.webp',
-      'silla.webp',
-      'mesa.webp',
-      'mesa2.webp',
-      'mesa3.webp',
-    ],
+  lightboxMedia: Object.freeze({
+    photos: Object.freeze([
+      Object.freeze({
+        type: 'image',
+        src: './mesa.webp',
+        tag: 'Comedor',
+        title: 'Mesa Principal',
+        subtitle: 'Fabricación propia',
+      }),
+      Object.freeze({
+        type: 'image',
+        src: './mesa2.webp',
+        tag: 'Living',
+        title: 'Mesas de Centro',
+        subtitle: 'Creamos espacios, creamos hogar',
+      }),
+      Object.freeze({
+        type: 'image',
+        src: './mesa3.webp',
+        tag: 'Diseño',
+        title: 'Acabados en Madera',
+        subtitle: 'A la altura de tus sueños',
+      }),
+      Object.freeze({
+        type: 'image',
+        src: './sillon2.webp',
+        tag: 'Sillones',
+        title: 'Espacios de Living',
+        subtitle: '12 cuotas sin interés',
+      }),
+    ]),
+    videos: Object.freeze([
+      Object.freeze({
+        type: 'video',
+        src: './sillon.mp4',
+        poster: './sillon.webp',
+        tag: 'Sillones',
+        title: 'Línea Sillones',
+        subtitle: 'Confort y tapicería seleccionada',
+      }),
+      Object.freeze({
+        type: 'video',
+        src: './silla.mp4',
+        poster: './silla.webp',
+        tag: 'Sillas',
+        title: 'Mix de Sillas',
+        subtitle: 'Diseño para comedor diario',
+      }),
+      Object.freeze({
+        type: 'video',
+        src: './silla2.mp4',
+        poster: './silla.webp',
+        tag: 'Detalles',
+        title: 'Terminaciones Nobles',
+        subtitle: 'Los detalles los hacen únicos',
+      }),
+    ]),
   }),
 });
 
 /**
- * Validador horario oficial en tiempo real para Argentina (UTC-3).
- * Lunes a Viernes: 10:30 a 13:30 hs y 14:30 a 18:30 hs
+ * Evaluador horario oficial en tiempo real (Argentina UTC-3).
+ * Nunca muestra "Cerrado ahora"; siempre orienta cuándo abre.
+ * Lunes a Viernes: 10:30 a 13:30 hs / 14:30 a 18:30 hs
  * Sábados: 10:00 a 15:00 hs
  * Domingos: Cerrado
  */
 export function evaluateStoreOpenStatus(dateInput = new Date()) {
-  const now = dateInput;
-  const utcMs = now.getTime() + now.getTimezoneOffset() * 60000;
-  const argTime = new Date(utcMs - 3600000 * 3);
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Argentina/Buenos_Aires',
+    weekday: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  });
 
-  const day = argTime.getDay(); // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
-  const hours = argTime.getHours();
-  const minutes = argTime.getMinutes();
-  const timeVal = hours + minutes / 60.0;
+  const parts = formatter.formatToParts(dateInput);
+  const map = Object.create(null);
+  for (let i = 0; i < parts.length; i++) {
+    map[parts[i].type] = parts[i].value;
+  }
+
+  const weekdayStr = map.weekday || 'Mon';
+  const hour = Number(map.hour) % 24;
+  const minute = Number(map.minute) || 0;
+  const timeVal = hour + minute / 60.0;
+
+  const isSunday = weekdayStr === 'Sun';
+  const isSaturday = weekdayStr === 'Sat';
+  const isFriday = weekdayStr === 'Fri';
+  const isWeekday = !isSunday && !isSaturday;
 
   let isOpen = false;
-  let scheduleTodayText = '';
+  let dockScheduleText = '';
+  let showroomBadgeText = '';
 
-  if (day >= 1 && day <= 5) {
-    scheduleTodayText = 'Lun a Vie: 10:30 a 13:30 hs y 14:30 a 18:30 hs';
-    if ((timeVal >= 10.5 && timeVal < 13.5) || (timeVal >= 14.5 && timeVal < 18.5)) {
+  if (isWeekday) {
+    showroomBadgeText = 'Lun a Vie 10:30–13:30 / 14:30–18:30';
+    if (timeVal >= 10.5 && timeVal < 13.5) {
       isOpen = true;
+      dockScheduleText = 'Abierto hoy hasta 13:30 hs · Luego 14:30 a 18:30 hs';
+    } else if (timeVal >= 13.5 && timeVal < 14.5) {
+      isOpen = false;
+      dockScheduleText = 'Reabrimos hoy de 14:30 a 18:30 hs';
+    } else if (timeVal >= 14.5 && timeVal < 18.5) {
+      isOpen = true;
+      dockScheduleText = 'Abierto hoy hasta las 18:30 hs';
+    } else if (timeVal < 10.5) {
+      isOpen = false;
+      dockScheduleText = 'Hoy abrimos 10:30–13:30 y 14:30–18:30 hs';
+    } else if (isFriday) {
+      isOpen = false;
+      dockScheduleText = 'Sábados abrimos 10:00 a 15:00 hs · Lun a Vie 10:30–18:30';
+    } else {
+      isOpen = false;
+      dockScheduleText = 'Abrimos Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15';
     }
-  } else if (day === 6) {
-    scheduleTodayText = 'Sábados: 10:00 a 15:00 hs';
-    if (timeVal >= 10.0 && timeVal < 15.0) {
+  } else if (isSaturday) {
+    showroomBadgeText = 'Sábados: 10:00 a 15:00 hs';
+    if (timeVal < 10.0) {
+      isOpen = false;
+      dockScheduleText = 'Hoy Sábado abrimos de 10:00 a 15:00 hs';
+    } else if (timeVal < 15.0) {
       isOpen = true;
+      dockScheduleText = 'Abierto hoy Sábado hasta las 15:00 hs';
+    } else {
+      isOpen = false;
+      dockScheduleText = 'Abrimos Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15';
     }
   } else {
-    scheduleTodayText = 'Domingos: Cerrado';
+    showroomBadgeText = 'Lun a Vie 10:30–18:30 · Sáb 10–15';
     isOpen = false;
+    dockScheduleText = 'Abrimos Lun a Vie 10:30–13:30 / 14:30–18:30 · Sáb 10–15';
   }
 
   return {
     isOpen,
-    day,
-    scheduleTodayText,
-    badgeText: isOpen ? 'Abierto Ahora' : 'Cerrado Ahora',
-    isSaturday: day === 6,
-    isWeekday: day >= 1 && day <= 5,
+    isWeekday,
+    isSaturday,
+    isSunday,
+    dockScheduleText,
+    showroomBadgeText,
   };
 }
