@@ -1,22 +1,20 @@
 /**
  * js/ui/dom-controller.js
  * Controlador integral:
- *  1. Paleta de colores (Lino, Arena, Noir) sin texto de modo.
- *  2. Horarios útiles dinámicos en el dock superior.
- *  3. Showrooms & Google Maps embebido (Lomas de Zamora / Adrogué).
- *  4. Galería Cinética 3D (touch nativo en móvil + drag con mouse en PC + flechas ‹ › + parallax).
- *  5. Studio Lightbox Modal para ampliar fotos y videos sin salir de la página.
- *  6. Botón flotante de WhatsApp diferido tras pasar el botón principal.
+ *  1. Horarios útiles dinámicos en Showrooms Oficiales.
+ *  2. Showrooms & Google Maps embebido (Lomas de Zamora / Adrogué).
+ *  3. Galería Cinética 3D (touch nativo en móvil + drag con mouse en PC + flechas ‹ › + parallax).
+ *  4. Studio Lightbox Modal para ampliar fotos y videos sin salir de la página.
+ *  5. Botón flotante de WhatsApp diferido tras pasar hacia abajo el botón principal.
  */
 
 import {
   BRAND_DATA,
-  PALETTES,
   BARONE_EVENTS,
   state,
   emitEvent,
   evaluateStoreOpenStatus,
-} from '../contract.js?v=3';
+} from '../contract.js?v=4';
 import { clamp, createSpringState, stepSpring } from '../engine/math.js?v=3';
 
 function triggerHaptic() {
@@ -26,11 +24,7 @@ function triggerHaptic() {
 }
 
 export function initDomController(director) {
-  const metaThemeColor = document.getElementById('metaThemeColor');
-  const ambienceTabs = Array.from(document.querySelectorAll('.ambience-tab'));
-
   const liveStatusBeacon = document.getElementById('liveStatusBeacon');
-  const liveStatusText = document.getElementById('liveStatusText');
   const hoursTagToday = document.getElementById('hoursTagToday');
 
   const activeBranchSub = document.getElementById('activeBranchSub');
@@ -61,46 +55,13 @@ export function initDomController(director) {
   const lightboxWaBtn = document.getElementById('lightboxWaBtn');
 
   const domCache = {
-    palette: '',
     branchId: '',
-    dockScheduleText: '',
-    showroomBadgeText: '',
+    showroomScheduleText: '',
     isOpen: null,
   };
 
   /* ========================================================================
-     1. SELECTOR DE PALETA (3 CÍRCULOS)
-     ======================================================================== */
-  function setPalette(paletteId) {
-    const config = PALETTES[paletteId] || PALETTES.lino;
-    if (config.id === domCache.palette) return;
-
-    domCache.palette = config.id;
-    state.palette = config.id;
-
-    document.body.removeAttribute('data-theme');
-    document.body.setAttribute('data-palette', config.id);
-
-    if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', config.themeColor);
-    }
-
-    for (let i = 0; i < ambienceTabs.length; i++) {
-      const tab = ambienceTabs[i];
-      const isMatch = tab.getAttribute('data-target') === config.id;
-      tab.classList.toggle('active', isMatch);
-      tab.setAttribute('aria-pressed', String(isMatch));
-    }
-
-    try {
-      localStorage.setItem('barone_palette_pref', config.id);
-    } catch (_) {}
-
-    emitEvent(BARONE_EVENTS.PALETTE_CHANGED, { palette: config.id });
-  }
-
-  /* ========================================================================
-     2. HORARIOS ÚTILES EN VIVO (DOCK + SHOWROOMS)
+     1. HORARIOS ÚTILES EN VIVO (EN CABECERA DE SHOWROOMS)
      ======================================================================== */
   function updateScheduleStatus() {
     const status = evaluateStoreOpenStatus(new Date());
@@ -114,14 +75,9 @@ export function initDomController(director) {
         : '0 0 8px rgba(226, 163, 58, 0.55)';
     }
 
-    if (liveStatusText && status.dockScheduleText !== domCache.dockScheduleText) {
-      domCache.dockScheduleText = status.dockScheduleText;
-      liveStatusText.textContent = status.dockScheduleText;
-    }
-
-    if (hoursTagToday && status.showroomBadgeText !== domCache.showroomBadgeText) {
-      domCache.showroomBadgeText = status.showroomBadgeText;
-      hoursTagToday.textContent = status.showroomBadgeText;
+    if (hoursTagToday && status.showroomScheduleText !== domCache.showroomScheduleText) {
+      domCache.showroomScheduleText = status.showroomScheduleText;
+      hoursTagToday.textContent = status.showroomScheduleText;
     }
 
     scheduleRowWeek?.classList.toggle('is-today', status.isWeekday);
@@ -132,7 +88,7 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     3. SHOWROOMS & MAPA GOOGLE EMBEBIDO (LOMAS / ADROGUÉ)
+     2. SHOWROOMS & MAPA GOOGLE EMBEBIDO (LOMAS / ADROGUÉ)
      ======================================================================== */
   function renderBranch(branchId) {
     const branch = BRAND_DATA.branches[branchId] || BRAND_DATA.branches.lomas;
@@ -175,7 +131,7 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     4. CARRUSELES CINÉTICOS 3D (TOUCH NATIVO + DRAG MOUSE EN PC + PARALLAX)
+     3. CARRUSELES CINÉTICOS 3D (TOUCH NATIVO + DRAG MOUSE EN PC + PARALLAX)
      ======================================================================== */
   function initKineticCarousel({ trackId, counterId, progressId, is3DPhotos = false }) {
     const track = document.getElementById(trackId);
@@ -229,6 +185,9 @@ export function initDomController(director) {
         }
       }
 
+      if (track.scrollLeft <= 4) closestIdx = 0;
+      else if (maxScroll > 4 && track.scrollLeft >= maxScroll - 4) closestIdx = total - 1;
+
       for (let i = 0; i < total; i++) {
         cards[i].classList.toggle('is-focal', i === closestIdx);
       }
@@ -256,7 +215,6 @@ export function initDomController(director) {
     track.addEventListener('scroll', scheduleUpdate, { passive: true });
     window.addEventListener('resize', scheduleUpdate, { passive: true });
 
-    // Arrastre con mouse solo en PC (en móvil usa el scroll táctil nativo sin interferencia)
     track.addEventListener('pointerdown', (e) => {
       if (e.pointerType !== 'mouse' || e.button !== 0) return;
       isMouseDown = true;
@@ -294,7 +252,7 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     5. STUDIO LIGHTBOX VIEWER (FOTOS & VIDEOS SIN SALIR DE LA WEB)
+     4. STUDIO LIGHTBOX VIEWER (FOTOS & VIDEOS SIN SALIR DE LA WEB)
      ======================================================================== */
   const lbState = {
     isOpen: false,
@@ -386,28 +344,33 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     6. BOTÓN FLOTANTE DIFERIDO (APARECE AL SCROLLEAR MÁS ALLÁ DEL BOTÓN HERO)
+     5. BOTÓN FLOTANTE DIFERIDO (SOLO APARECE AL PASAR EL BOTÓN HERO HACIA ABAJO)
      ======================================================================== */
   function initDeferredFloatingWhatsApp() {
     if (!heroWhatsAppBtn || !floatingWaBtn) return;
 
-    if ('IntersectionObserver' in window) {
-      const heroObserver = new IntersectionObserver(
-        (entries) => {
-          const entry = entries[0];
-          const heroIsVisible = entry.isIntersecting;
-          floatingWaBtn.classList.toggle('is-visible', !heroIsVisible);
-        },
-        { threshold: 0.15 }
-      );
-      heroObserver.observe(heroWhatsAppBtn);
-    } else {
-      floatingWaBtn.classList.add('is-visible');
+    let checkRaf = null;
+    function checkPosition() {
+      checkRaf = null;
+      const rect = heroWhatsAppBtn.getBoundingClientRect();
+      // Solo visible cuando el botón principal ya quedó arriba fuera de pantalla
+      const passedHero = rect.bottom < 16 && window.scrollY > 40;
+      floatingWaBtn.classList.toggle('is-visible', passedHero);
     }
+
+    function scheduleCheck() {
+      if (checkRaf === null) {
+        checkRaf = requestAnimationFrame(checkPosition);
+      }
+    }
+
+    window.addEventListener('scroll', scheduleCheck, { passive: true });
+    window.addEventListener('resize', scheduleCheck, { passive: true });
+    checkPosition();
   }
 
   /* ========================================================================
-     7. FÍSICA DE RESORTE EN CARDS BENTO (DESKTOP)
+     6. FÍSICA DE RESORTE EN CARDS BENTO (DESKTOP)
      ======================================================================== */
   function initBentoSprings() {
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
@@ -468,20 +431,9 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     8. BINDING DE EVENTOS
+     7. BINDING DE EVENTOS
      ======================================================================== */
   function bindEvents() {
-    for (let i = 0; i < ambienceTabs.length; i++) {
-      ambienceTabs[i].addEventListener('click', (e) => {
-        const target = e.currentTarget.getAttribute('data-target');
-        if (target) {
-          triggerHaptic();
-          setPalette(target);
-          emitEvent(BARONE_EVENTS.UI_CLICK);
-        }
-      });
-    }
-
     for (let i = 0; i < branchTabs.length; i++) {
       branchTabs[i].addEventListener('click', (e) => {
         const branchId = e.currentTarget.getAttribute('data-branch');
@@ -573,13 +525,6 @@ export function initDomController(director) {
     });
   }
 
-  let initialPalette = 'lino';
-  try {
-    const saved = localStorage.getItem('barone_palette_pref');
-    if (saved && PALETTES[saved]) initialPalette = saved;
-  } catch (_) {}
-
-  setPalette(initialPalette);
   renderBranch('lomas');
   updateScheduleStatus();
   bindEvents();
@@ -602,7 +547,6 @@ export function initDomController(director) {
   initBentoSprings();
 
   return {
-    setPalette,
     renderBranch,
     updateScheduleStatus,
   };
