@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/styles.css?v=4">
+    <link rel="stylesheet" href="./css/styles.css?v=5">
 </head>
 <body>
 
@@ -127,18 +127,32 @@
                 </div>
             </header>
 
-            <!-- BOTÓN PRINCIPAL DE WHATSAPP -->
-            <a href="https://wa.me/5491146731570?text=%C2%A1Hola%20Tienda%20Barone!%20Quisiera%20hacer%20una%20consulta%20por%20sus%20muebles%20de%20dise%C3%B1o%20y%20sillones." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-primary" id="heroWhatsAppBtn">
-                <span class="wa-sheen-beam" aria-hidden="true"></span>
-                <div class="wa-primary-left">
-                    <span class="wa-primary-kicker"><span class="wa-dot-pulse"></span> WhatsApp Directo</span>
-                    <h2 class="wa-primary-title">Consultar por WhatsApp</h2>
-                    <span class="wa-primary-sub">11 4673-1570 · Presupuestos y asesoramiento</span>
-                </div>
-                <div class="wa-primary-badge" aria-hidden="true">
-                    <svg viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-                </div>
-            </a>
+            <!-- BOTONES PRINCIPALES DE WHATSAPP (LOMAS DE ZAMORA + ADROGUÉ) -->
+            <div class="hero-wa-dual-grid" id="heroWhatsAppZone">
+                <a href="https://wa.me/5491146731570?text=%C2%A1Hola%20Tienda%20Barone%20Lomas!%20Quisiera%20hacer%20una%20consulta%20por%20sus%20muebles%20de%20dise%C3%B1o%20y%20sillones." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-primary" id="heroWhatsAppBtn">
+                    <span class="wa-sheen-beam" aria-hidden="true"></span>
+                    <div class="wa-primary-left">
+                        <span class="wa-primary-kicker"><span class="wa-dot-pulse"></span> WhatsApp Directo</span>
+                        <h2 class="wa-primary-title">Local Lomas de Zamora</h2>
+                        <span class="wa-primary-sub">11 4673-1570 · Presupuestos y asesoramiento</span>
+                    </div>
+                    <div class="wa-primary-badge" aria-hidden="true">
+                        <svg viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                    </div>
+                </a>
+
+                <a href="https://wa.me/5491127847761?text=%C2%A1Hola%20Tienda%20Barone%20Adrogu%C3%A9!%20Quisiera%20hacer%20una%20consulta%20por%20sus%20muebles%20de%20dise%C3%B1o%20y%20sillones." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-primary" id="heroWhatsAppBtnAdrogue">
+                    <span class="wa-sheen-beam wa-sheen-delayed" aria-hidden="true"></span>
+                    <div class="wa-primary-left">
+                        <span class="wa-primary-kicker"><span class="wa-dot-pulse"></span> WhatsApp Directo</span>
+                        <h2 class="wa-primary-title">Local Adrogué</h2>
+                        <span class="wa-primary-sub">11 2784-7761 · Presupuestos y asesoramiento</span>
+                    </div>
+                    <div class="wa-primary-badge" aria-hidden="true">
+                        <svg viewBox="0 0 448 512" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                    </div>
+                </a>
+            </div>
 
         </section>
 
@@ -387,7 +401,7 @@
         </section>
 
         <!-- ==================================================================
-             BLOQUE 5: SHOWROOMS & HORARIOS OFICIALES + GOOGLE MAPS
+             BLOQUE 5: LOCALES & HORARIOS OFICIALES + GOOGLE MAPS
              ================================================================== -->
         <article class="atelier-map-card" aria-label="Locales y Horarios Oficiales">
             <div class="atelier-map-header">
@@ -463,12 +477,39 @@
             <a href="https://www.instagram.com/tiendabarone/" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="Instagram Tienda Barone">
                 <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
             </a>
-            <a href="https://wa.me/5491146731570" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="WhatsApp Tienda Barone">
-                <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-            </a>
-            <a href="tel:+5491146731570" class="social-pill-btn" aria-label="Llamar a Tienda Barone">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </a>
+
+            <div class="branch-popover-anchor">
+                <button type="button" class="social-pill-btn" id="socialWaBtn" aria-label="WhatsApp Tienda Barone" aria-expanded="false" aria-controls="socialWaMenu">
+                    <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                </button>
+                <div class="branch-popover-menu" id="socialWaMenu" hidden>
+                    <a href="https://wa.me/5491146731570?text=%C2%A1Hola%20Tienda%20Barone%20Lomas!" target="_blank" rel="noopener noreferrer" class="branch-popover-link">
+                        <span>WhatsApp Lomas</span>
+                        <small>11 4673-1570 ↗</small>
+                    </a>
+                    <a href="https://wa.me/5491127847761?text=%C2%A1Hola%20Tienda%20Barone%20Adrogu%C3%A9!" target="_blank" rel="noopener noreferrer" class="branch-popover-link">
+                        <span>WhatsApp Adrogué</span>
+                        <small>11 2784-7761 ↗</small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="branch-popover-anchor">
+                <button type="button" class="social-pill-btn" id="socialTelBtn" aria-label="Llamar a Tienda Barone" aria-expanded="false" aria-controls="socialTelMenu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </button>
+                <div class="branch-popover-menu" id="socialTelMenu" hidden>
+                    <a href="tel:+5491146731570" class="branch-popover-link">
+                        <span>Llamar Lomas</span>
+                        <small>11 4673-1570 ↗</small>
+                    </a>
+                    <a href="tel:+5491127847761" class="branch-popover-link">
+                        <span>Llamar Adrogué</span>
+                        <small>11 2784-7761 ↗</small>
+                    </a>
+                </div>
+            </div>
+
             <a href="http://www.tiendabarone.com.ar/" target="_blank" rel="noopener noreferrer" class="social-pill-btn" aria-label="Sitio Web Tienda Barone">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </a>
@@ -482,7 +523,9 @@
                 Lomas de Zamora: Hipólito Yrigoyen 9039 · Adrogué: Plaza Esteban Adrogué 48.
             </p>
             <div class="colophon-links-legal">
-                <a href="https://wa.me/5491146731570" target="_blank" rel="noopener noreferrer">WhatsApp: 11 4673-1570</a>
+                <a href="https://wa.me/5491146731570" target="_blank" rel="noopener noreferrer">WhatsApp Lomas: 11 4673-1570</a>
+                <span>•</span>
+                <a href="https://wa.me/5491127847761" target="_blank" rel="noopener noreferrer">WhatsApp Adrogué: 11 2784-7761</a>
                 <span>•</span>
                 <a href="https://www.instagram.com/tiendabarone/" target="_blank" rel="noopener noreferrer">@tiendabarone</a>
                 <span>•</span>
@@ -493,13 +536,25 @@
 
     </main>
 
-    <!-- BOTÓN FLOTANTE DIFERIDO (APARECE SOLO AL PASAR EL BOTÓN PRINCIPAL HACIA ABAJO) -->
-    <a href="https://wa.me/5491146731570?text=%C2%A1Hola%20Tienda%20Barone!%20Quisiera%20consultar%20por%20sus%20muebles%20de%20dise%C3%B1o." class="floating-whatsapp-wrap" target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp con Tienda Barone" id="floatingWaBtn">
-        <span class="floating-whatsapp-pill-label">WhatsApp</span>
-        <div class="floating-whatsapp-btn">
-            <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    <!-- BOTÓN FLOTANTE DIFERIDO CON SELECTOR DE LOCAL (LOMAS / ADROGUÉ) -->
+    <div class="floating-whatsapp-anchor" id="floatingWaWrap">
+        <div class="floating-wa-menu" id="floatingWaMenu" hidden>
+            <a href="https://wa.me/5491146731570?text=%C2%A1Hola%20Tienda%20Barone%20Lomas!%20Quisiera%20consultar%20por%20sus%20muebles%20de%20dise%C3%B1o." target="_blank" rel="noopener noreferrer" class="floating-wa-option">
+                <span>Local Lomas de Zamora</span>
+                <small>11 4673-1570 ↗</small>
+            </a>
+            <a href="https://wa.me/5491127847761?text=%C2%A1Hola%20Tienda%20Barone%20Adrogu%C3%A9!%20Quisiera%20consultar%20por%20sus%20muebles%20de%20dise%C3%B1o." target="_blank" rel="noopener noreferrer" class="floating-wa-option">
+                <span>Local Adrogué</span>
+                <small>11 2784-7761 ↗</small>
+            </a>
         </div>
-    </a>
+        <button type="button" class="floating-whatsapp-wrap" id="floatingWaBtn" aria-label="Elegir WhatsApp de Lomas de Zamora o Adrogué" aria-expanded="false" aria-controls="floatingWaMenu">
+            <span class="floating-whatsapp-pill-label">WhatsApp</span>
+            <div class="floating-whatsapp-btn">
+                <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+            </div>
+        </button>
+    </div>
 
     <!-- VISOR STUDIO LIGHTBOX CINEMATOGRÁFICO -->
     <div class="studio-lightbox" id="studioLightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
@@ -530,10 +585,16 @@
                     <h4 class="lightbox-title" id="lightboxTitle">Mesa Principal</h4>
                     <p class="lightbox-sub" id="lightboxSub">Fabricación propia</p>
                 </div>
-                <a href="https://wa.me/5491146731570" target="_blank" rel="noopener noreferrer" class="lightbox-wa-btn" id="lightboxWaBtn">
-                    <span>Consultar pieza</span>
-                    <span aria-hidden="true">↗</span>
-                </a>
+                <div class="lightbox-wa-actions">
+                    <a href="https://wa.me/5491146731570" target="_blank" rel="noopener noreferrer" class="lightbox-wa-btn" id="lightboxWaLomas">
+                        <span>WhatsApp Lomas</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                    <a href="https://wa.me/5491127847761" target="_blank" rel="noopener noreferrer" class="lightbox-wa-btn" id="lightboxWaAdrogue">
+                        <span>WhatsApp Adrogué</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
             </footer>
         </div>
     </div>
