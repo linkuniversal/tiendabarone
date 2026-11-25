@@ -1,11 +1,11 @@
 /**
  * js/ui/dom-controller.js
  * Controlador integral:
- *  1. Horarios útiles dinámicos en Showrooms Oficiales.
- *  2. Showrooms & Google Maps embebido (Lomas de Zamora / Adrogué).
+ *  1. Horarios útiles dinámicos en Locales Oficiales.
+ *  2. Locales & Google Maps embebido + WhatsApp propio (Lomas de Zamora / Adrogué).
  *  3. Galería Cinética 3D (touch nativo en móvil + drag con mouse en PC + flechas ‹ › + parallax).
  *  4. Studio Lightbox Modal para ampliar fotos y videos sin salir de la página.
- *  5. Botón flotante de WhatsApp diferido tras pasar hacia abajo el botón principal.
+ *  5. Botón flotante de WhatsApp diferido con selector Lomas / Adrogué.
  */
 
 import {
@@ -37,8 +37,18 @@ export function initDomController(director) {
   const scheduleRowSun = document.getElementById('scheduleRowSun');
   const brandLogoTrigger = document.getElementById('brandLogoTrigger');
 
+  const heroWhatsAppZone = document.getElementById('heroWhatsAppZone');
   const heroWhatsAppBtn = document.getElementById('heroWhatsAppBtn');
+  const heroWhatsAppBtnAdrogue = document.getElementById('heroWhatsAppBtnAdrogue');
+
+  const floatingWaWrap = document.getElementById('floatingWaWrap');
   const floatingWaBtn = document.getElementById('floatingWaBtn');
+  const floatingWaMenu = document.getElementById('floatingWaMenu');
+
+  const socialWaBtn = document.getElementById('socialWaBtn');
+  const socialWaMenu = document.getElementById('socialWaMenu');
+  const socialTelBtn = document.getElementById('socialTelBtn');
+  const socialTelMenu = document.getElementById('socialTelMenu');
 
   // Elementos del Studio Lightbox
   const studioLightbox = document.getElementById('studioLightbox');
@@ -52,7 +62,8 @@ export function initDomController(director) {
   const lightboxTag = document.getElementById('lightboxTag');
   const lightboxTitle = document.getElementById('lightboxTitle');
   const lightboxSub = document.getElementById('lightboxSub');
-  const lightboxWaBtn = document.getElementById('lightboxWaBtn');
+  const lightboxWaLomas = document.getElementById('lightboxWaLomas');
+  const lightboxWaAdrogue = document.getElementById('lightboxWaAdrogue');
 
   const domCache = {
     branchId: '',
@@ -61,7 +72,7 @@ export function initDomController(director) {
   };
 
   /* ========================================================================
-     1. HORARIOS ÚTILES EN VIVO (EN CABECERA DE SHOWROOMS)
+     1. HORARIOS ÚTILES EN VIVO (EN CABECERA DE LOCALES)
      ======================================================================== */
   function updateScheduleStatus() {
     const status = evaluateStoreOpenStatus(new Date());
@@ -88,7 +99,7 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     2. SHOWROOMS & MAPA GOOGLE EMBEBIDO (LOMAS / ADROGUÉ)
+     2. LOCALES, MAPA GOOGLE & WHATSAPP ESPECÍFICO (LOMAS / ADROGUÉ)
      ======================================================================== */
   function renderBranch(branchId) {
     const branch = BRAND_DATA.branches[branchId] || BRAND_DATA.branches.lomas;
@@ -103,7 +114,7 @@ export function initDomController(director) {
 
     if (branchMapFrame && branchMapFrame.getAttribute('src') !== branch.embedUrl) {
       branchMapFrame.setAttribute('src', branch.embedUrl);
-      branchMapFrame.setAttribute('title', `Ubicación Showroom ${branch.name} en Google Maps`);
+      branchMapFrame.setAttribute('title', `Ubicación local ${branch.name} en Google Maps`);
     }
 
     if (branchActionsRow) {
@@ -113,7 +124,7 @@ export function initDomController(director) {
           <span>Abrir en Google Maps</span>
           <span aria-hidden="true">↗</span>
         </a>
-        <a href="https://wa.me/${BRAND_DATA.contact.whatsappNumber}?text=${waMsg}" target="_blank" rel="noopener noreferrer" class="atelier-open-directions">
+        <a href="https://wa.me/${branch.whatsappNumber}?text=${waMsg}" target="_blank" rel="noopener noreferrer" class="atelier-open-directions">
           <span>Consultar ${branch.shortLabel}</span>
           <span aria-hidden="true">↗</span>
         </a>
@@ -131,7 +142,34 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     3. CARRUSELES CINÉTICOS 3D (TOUCH NATIVO + DRAG MOUSE EN PC + PARALLAX)
+     3. MENÚS POPOVER PARA ELEGIR LOCAL (FLOTANTE + BARRA SOCIAL)
+     ======================================================================== */
+  function closeAllBranchMenus() {
+    if (floatingWaMenu) {
+      floatingWaMenu.hidden = true;
+      floatingWaBtn?.setAttribute('aria-expanded', 'false');
+    }
+    if (socialWaMenu) {
+      socialWaMenu.hidden = true;
+      socialWaBtn?.setAttribute('aria-expanded', 'false');
+    }
+    if (socialTelMenu) {
+      socialTelMenu.hidden = true;
+      socialTelBtn?.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  function toggleMenu(btn, menu) {
+    if (!btn || !menu) return;
+    const willOpen = menu.hidden;
+    closeAllBranchMenus();
+    menu.hidden = !willOpen;
+    btn.setAttribute('aria-expanded', String(willOpen));
+    triggerHaptic();
+  }
+
+  /* ========================================================================
+     4. CARRUSELES CINÉTICOS 3D (TOUCH NATIVO + DRAG MOUSE EN PC + PARALLAX)
      ======================================================================== */
   function initKineticCarousel({ trackId, counterId, progressId, is3DPhotos = false }) {
     const track = document.getElementById(trackId);
@@ -252,7 +290,7 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     4. STUDIO LIGHTBOX VIEWER (FOTOS & VIDEOS SIN SALIR DE LA WEB)
+     5. STUDIO LIGHTBOX VIEWER (FOTOS & VIDEOS SIN SALIR DE LA WEB)
      ======================================================================== */
   const lbState = {
     isOpen: false,
@@ -276,9 +314,14 @@ export function initDomController(director) {
     if (lightboxTitle) lightboxTitle.textContent = item.title;
     if (lightboxSub) lightboxSub.textContent = item.subtitle;
 
-    if (lightboxWaBtn) {
-      const msg = encodeURIComponent(`¡Hola Tienda Barone! Quisiera consultar por: ${item.title} (${item.tag}).`);
-      lightboxWaBtn.href = `https://wa.me/${BRAND_DATA.contact.whatsappNumber}?text=${msg}`;
+    const msgLomas = encodeURIComponent(`¡Hola Tienda Barone Lomas! Quisiera consultar por: ${item.title} (${item.tag}).`);
+    const msgAdrogue = encodeURIComponent(`¡Hola Tienda Barone Adrogué! Quisiera consultar por: ${item.title} (${item.tag}).`);
+
+    if (lightboxWaLomas) {
+      lightboxWaLomas.href = `https://wa.me/${BRAND_DATA.branches.lomas.whatsappNumber}?text=${msgLomas}`;
+    }
+    if (lightboxWaAdrogue) {
+      lightboxWaAdrogue.href = `https://wa.me/${BRAND_DATA.branches.adrogue.whatsappNumber}?text=${msgAdrogue}`;
     }
 
     if (lightboxMediaSlot) {
@@ -307,6 +350,7 @@ export function initDomController(director) {
 
   function openLightbox(group, index, triggerEl = null) {
     if (!studioLightbox) return;
+    closeAllBranchMenus();
     lbState.lastFocusedEl = triggerEl || document.activeElement;
     lbState.group = group;
     lbState.index = index;
@@ -344,18 +388,21 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     5. BOTÓN FLOTANTE DIFERIDO (SOLO APARECE AL PASAR EL BOTÓN HERO HACIA ABAJO)
+     6. BOTÓN FLOTANTE DIFERIDO (SOLO APARECE AL PASAR EL BLOQUE HERO WHATSAPP)
      ======================================================================== */
   function initDeferredFloatingWhatsApp() {
-    if (!heroWhatsAppBtn || !floatingWaBtn) return;
+    const triggerZone = heroWhatsAppZone || heroWhatsAppBtn;
+    if (!triggerZone || !floatingWaWrap) return;
 
     let checkRaf = null;
     function checkPosition() {
       checkRaf = null;
-      const rect = heroWhatsAppBtn.getBoundingClientRect();
-      // Solo visible cuando el botón principal ya quedó arriba fuera de pantalla
+      const rect = triggerZone.getBoundingClientRect();
       const passedHero = rect.bottom < 16 && window.scrollY > 40;
-      floatingWaBtn.classList.toggle('is-visible', passedHero);
+      floatingWaWrap.classList.toggle('is-visible', passedHero);
+      if (!passedHero && floatingWaMenu && !floatingWaMenu.hidden) {
+        closeAllBranchMenus();
+      }
     }
 
     function scheduleCheck() {
@@ -370,7 +417,7 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     6. FÍSICA DE RESORTE EN CARDS BENTO (DESKTOP)
+     7. FÍSICA DE RESORTE EN CARDS BENTO (DESKTOP)
      ======================================================================== */
   function initBentoSprings() {
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
@@ -431,7 +478,7 @@ export function initDomController(director) {
   }
 
   /* ========================================================================
-     7. BINDING DE EVENTOS
+     8. BINDING DE EVENTOS
      ======================================================================== */
   function bindEvents() {
     for (let i = 0; i < branchTabs.length; i++) {
@@ -495,10 +542,39 @@ export function initDomController(director) {
     }, { passive: true });
 
     window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAllBranchMenus();
+        if (lbState.isOpen) closeLightbox();
+        return;
+      }
       if (!lbState.isOpen) return;
-      if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') stepLightbox(-1);
       if (e.key === 'ArrowRight') stepLightbox(1);
+    });
+
+    floatingWaBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu(floatingWaBtn, floatingWaMenu);
+    });
+
+    socialWaBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu(socialWaBtn, socialWaMenu);
+    });
+
+    socialTelBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu(socialTelBtn, socialTelMenu);
+    });
+
+    document.addEventListener('click', (e) => {
+      const target = e.target;
+      if (
+        !target.closest?.('.floating-whatsapp-anchor') &&
+        !target.closest?.('.branch-popover-anchor')
+      ) {
+        closeAllBranchMenus();
+      }
     });
 
     const scrollTop = () => {
@@ -514,7 +590,7 @@ export function initDomController(director) {
     });
 
     heroWhatsAppBtn?.addEventListener('click', triggerHaptic);
-    floatingWaBtn?.addEventListener('click', triggerHaptic);
+    heroWhatsAppBtnAdrogue?.addEventListener('click', triggerHaptic);
 
     setInterval(() => {
       if (!document.hidden) updateScheduleStatus();
