@@ -186,7 +186,7 @@ button {
    ========================================================================== */
 .hero-editorial-stage {
     width: 100%;
-    max-width: 660px;
+    max-width: 720px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -196,6 +196,7 @@ button {
 
 .brand-monument {
     width: 100%;
+    max-width: 660px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -344,15 +345,29 @@ button {
 }
 
 /* ==========================================================================
-   6. BOTÓN PRINCIPAL DE WHATSAPP (CORTO, INCONFUNDIBLE Y REFLEJO LUMINOSO)
+   6. BOTONES PRINCIPALES DE WHATSAPP (LOMAS DE ZAMORA + ADROGUÉ)
    ========================================================================== */
+.hero-wa-dual-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+@media (min-width: 600px) {
+    .hero-wa-dual-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+}
+
 .btn-whatsapp-primary {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 14px;
-    padding: 16px 20px;
+    gap: 12px;
+    padding: 15px 18px;
     background: linear-gradient(135deg, #351703 0%, #220F02 100%);
     border: 1.5px solid var(--color-gold);
     border-radius: 20px;
@@ -363,8 +378,10 @@ button {
     overflow: hidden;
     transition: transform 0.28s var(--spring), box-shadow 0.28s ease;
     cursor: pointer;
+    min-width: 0;
 }
 
+/* REFLEJO LUMINOSO CORRIENDO DE IZQUIERDA A DERECHA */
 .wa-sheen-beam {
     position: absolute;
     top: -10%;
@@ -384,6 +401,10 @@ button {
     z-index: 1;
     animation: whatsappSheen 3.6s ease-in-out infinite;
     will-change: transform, left;
+}
+
+.wa-sheen-delayed {
+    animation-delay: 1.4s;
 }
 
 @keyframes whatsappSheen {
@@ -410,7 +431,7 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.66rem;
+    font-size: 0.64rem;
     font-weight: 800;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -427,21 +448,21 @@ button {
 
 .wa-primary-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.32rem, 4vw, 1.60rem);
+    font-size: clamp(1.24rem, 3.6vw, 1.44rem);
     font-weight: 600;
     line-height: 1.12;
     color: #FFFFFF;
 }
 
 .wa-primary-sub {
-    font-size: clamp(0.72rem, 2vw, 0.80rem);
+    font-size: clamp(0.70rem, 1.9vw, 0.76rem);
     color: #EBDCCF;
     font-weight: 500;
 }
 
 .wa-primary-badge {
-    width: 50px;
-    height: 50px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
     background: #25D366;
     color: #FFFFFF;
@@ -460,8 +481,8 @@ button {
 }
 
 .wa-primary-badge svg {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
 }
 
 /* ==========================================================================
@@ -953,7 +974,7 @@ button {
 }
 
 /* ==========================================================================
-   9. SHOWROOMS & GOOGLE MAPS INTERACTIVO + HORARIO ÚTIL EN VIVO
+   9. LOCALES & GOOGLE MAPS INTERACTIVO + HORARIO ÚTIL EN VIVO
    ========================================================================== */
 .atelier-map-card {
     width: 100%;
@@ -1176,13 +1197,70 @@ button {
 }
 
 /* ==========================================================================
-   10. REDES, FOOTER & WHATSAPP FLOTANTE DIFERIDO
+   10. REDES, POPOVER DE LOCALES, FOOTER & WHATSAPP FLOTANTE DIFERIDO
    ========================================================================== */
 .social-network-bar {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
+    position: relative;
+}
+
+.branch-popover-anchor {
+    position: relative;
+    display: inline-flex;
+}
+
+.branch-popover-menu[hidden],
+.floating-wa-menu[hidden] {
+    display: none;
+}
+
+.branch-popover-menu {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 196px;
+    background: var(--bg-surface);
+    border: 1px solid var(--color-border-hover);
+    border-radius: 16px;
+    padding: 6px;
+    box-shadow: 0 18px 40px -8px rgba(53, 23, 3, 0.24);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 40;
+    animation: popScale 0.2s var(--spring);
+}
+
+.branch-popover-link {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    padding: 9px 12px;
+    border-radius: 11px;
+    text-decoration: none;
+    color: var(--color-text-title);
+    background: transparent;
+    transition: background-color 0.18s ease;
+}
+
+.branch-popover-link:hover {
+    background: var(--bg-surface-elevated);
+}
+
+.branch-popover-link span {
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.branch-popover-link small {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--color-wood-soft);
+    font-weight: 600;
 }
 
 .social-pill-btn {
@@ -1196,6 +1274,7 @@ button {
     border: 1px solid var(--color-border);
     color: var(--color-wood);
     text-decoration: none;
+    cursor: pointer;
     box-shadow: var(--shadow-card);
     transition: all 0.22s var(--spring);
 }
@@ -1272,26 +1351,78 @@ button {
     letter-spacing: 0.04em;
 }
 
-/* BOTÓN FLOTANTE QUE APARECE ÚNICAMENTE TRAS SCROLLEAR PASANDO EL BOTÓN PRINCIPAL */
-.floating-whatsapp-wrap {
+/* BOTÓN FLOTANTE QUE APARECE ÚNICAMENTE TRAS SCROLLEAR PASANDO EL HERO */
+.floating-whatsapp-anchor {
     position: fixed;
     bottom: calc(18px + env(safe-area-inset-bottom));
     right: 16px;
     display: flex;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
     z-index: 900;
-    text-decoration: none;
     opacity: 0;
     transform: translateY(18px) scale(0.92);
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.35s var(--spring);
 }
 
-.floating-whatsapp-wrap.is-visible {
+.floating-whatsapp-anchor.is-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
     pointer-events: auto;
+}
+
+.floating-wa-menu {
+    min-width: 224px;
+    background: var(--bg-surface);
+    border: 1.5px solid var(--color-gold);
+    border-radius: 18px;
+    padding: 7px;
+    box-shadow: 0 18px 40px -6px rgba(53, 23, 3, 0.30);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    animation: popScale 0.22s var(--spring);
+}
+
+.floating-wa-option {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--color-text-title);
+    background: var(--bg-surface-elevated);
+    transition: background-color 0.2s ease, transform 0.18s ease;
+}
+
+.floating-wa-option:hover {
+    background: var(--badge-bg);
+    transform: translateX(-2px);
+}
+
+.floating-wa-option span {
+    font-size: 0.80rem;
+    font-weight: 800;
+}
+
+.floating-wa-option small {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #128C7E;
+}
+
+.floating-whatsapp-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
 }
 
 .floating-whatsapp-pill-label {
@@ -1519,6 +1650,13 @@ button {
     color: #D1BAA9;
 }
 
+.lightbox-wa-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
 .lightbox-wa-btn {
     display: inline-flex;
     align-items: center;
@@ -1526,9 +1664,9 @@ button {
     background: #25D366;
     color: #FFFFFF;
     text-decoration: none;
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     font-weight: 800;
-    padding: 9px 16px;
+    padding: 8px 14px;
     border-radius: 999px;
     transition: transform 0.2s ease, filter 0.2s ease;
 }
